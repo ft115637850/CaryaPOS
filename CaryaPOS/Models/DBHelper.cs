@@ -19,6 +19,7 @@ namespace CaryaPOS.Models
         private const string sqlCreateTables = @"
             create table DBVersion
             (
+            DBVersionID int,
             VersionNO   int,
             VersionDesc varchar(50)
             );
@@ -44,7 +45,7 @@ namespace CaryaPOS.Models
             BarcodeType			int,
             PriceRate			int,
             GoodsType			int,
-            SaleTaxRate	        hhdecimal(4,2),
+            SaleTaxRate	        decimal(4,2),
             PromFlag			smallint,
             CustomNo			char(30),
             MnemonicCode		varchar(50),
