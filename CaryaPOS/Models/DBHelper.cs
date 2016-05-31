@@ -8,21 +8,27 @@ using System.Threading.Tasks;
 
 namespace CaryaPOS.Models
 {
+    public enum LocalDBType
+    {
+        SalesDB,
+        LocalDB
+    };
+
     public class DBHelper
     {
-        private static readonly string dbSource = Path.Combine(System.Environment.CurrentDirectory, "LocalDB.db");
-        private static SQLiteConnectionStringBuilder cnnStrBlder = new SQLiteConnectionStringBuilder()
-        {
-            DataSource = dbSource
-        };
-
-        private const string sqlCreateTables = @"
+        private static readonly string writeDBSource = Path.Combine(System.Environment.CurrentDirectory, "SalesDB.db");
+        private static readonly string readDBSource = Path.Combine(System.Environment.CurrentDirectory, "LocalDB.db");
+        private static SQLiteConnectionStringBuilder cnnStrBlder = new SQLiteConnectionStringBuilder();
+        private const string sqlCreateSalesDBTables = "";
+        private const string sqlCreateLocalDBTables = @"
             create table DBVersion
             (
             DBVersionID int,
             VersionNO   int,
-            VersionDesc varchar(50)
+            VersionDesc varchar(50),
+            primary key(DBVersionID)
             );
+
             CREATE TABLE GoodsPrice
             (
             goodsid				int,
@@ -31,7 +37,7 @@ namespace CaryaPOS.Models
             shortname			char(50),
             unitname			char(8),
             spec				char(16),
-            deptid				int,
+            CategoryID			int,
             brandid				int,
             cost				decimal(16,8),
             price				decimal(10,2),
@@ -53,15 +59,38 @@ namespace CaryaPOS.Models
             primary key(goodsid),
             unique(barcodeid)
             );
+
+            Create Table Category
+            (
+            CategoryID     int,
+            CategoryName   varchar(32),
+            LevelID        int,
+            primary key(CategoryID)
+            );
             ";
         
-        public static void CreateDB()
+        public static void CreateDB(LocalDBType type)
         {
+            string sql = string.Empty;
+            string dbSource = string.Empty;
+            if (type == LocalDBType.LocalDB)
+            {
+                sql = sqlCreateLocalDBTables;
+                dbSource = readDBSource;
+            }
+            else
+            {
+                sql = sqlCreateSalesDBTables;
+                dbSource = writeDBSource;
+            }
+
             SQLiteConnection.CreateFile(dbSource);
+            cnnStrBlder.DataSource = dbSource;
+
             using (var cnn = new SQLiteConnection(cnnStrBlder.ToString()))
             {
                 cnn.Open();
-                var cmd = new System.Data.SQLite.SQLiteCommand(sqlCreateTables, cnn);
+                var cmd = new System.Data.SQLite.SQLiteCommand(sql, cnn);
                 cmd.ExecuteNonQuery();
             }
         }

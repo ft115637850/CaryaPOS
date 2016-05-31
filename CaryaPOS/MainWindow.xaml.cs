@@ -28,7 +28,7 @@ namespace CaryaPOS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DBHelper.CreateDB();
+            DBHelper.CreateDB(LocalDBType.LocalDB);
         }
     }
 }
