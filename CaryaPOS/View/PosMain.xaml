@@ -1,0 +1,55 @@
+﻿<Window x:Class="CaryaPOS.View.PosMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+		Background="{DynamicResource MaterialDesignPaper}"
+		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="PosMain" MinHeight="768" MinWidth="1024" WindowStyle="None" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+		<Grid x:Name="LeftPart"  Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+			<Grid x:Name="Summary"  Grid.Row="0"  Background="#FFDBF3EF">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+				</Grid.ColumnDefinitions>
+				<Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF686262" >
+					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
+				</Border>
+				<Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF2E1616" >
+					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
+				</Border>
+				<Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF2E1616" >
+					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
+				</Border>
+			</Grid>
+			<Button Grid.Row="1">test</Button>
+		</Grid>
+		<GridSplitter Grid.Row="0" Grid.Column="1" 
+				Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"
+				ShowsPreview="False"></GridSplitter>
+        <Grid x:Name="RightPart" Grid.Column="2">
+			<TabControl>
+				<TabItem Header="Category1"/>
+				<TabItem Header="Category2"/>
+				<TabItem Header="Category3"/>
+				<TabItem Header="Category4"/>
+			</TabControl>
+		</Grid>
+    </Grid>
+</Window>
