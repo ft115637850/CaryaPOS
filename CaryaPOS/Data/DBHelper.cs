@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaryaPOS.Models
+namespace CaryaPOS.Data
 {
     public enum LocalDBType
     {
@@ -14,11 +14,10 @@ namespace CaryaPOS.Models
         LocalDB
     };
 
-    public class DBHelper
+    class DBHelper
     {
         private static readonly string writeDBSource = Path.Combine(System.Environment.CurrentDirectory, "SalesDB.db");
         private static readonly string readDBSource = Path.Combine(System.Environment.CurrentDirectory, "LocalDB.db");
-        private static SQLiteConnectionStringBuilder cnnStrBlder = new SQLiteConnectionStringBuilder();
         private const string sqlCreateSalesDBTables = "";
         private const string sqlCreateLocalDBTables = @"
             create table DBVersion
@@ -68,7 +67,28 @@ namespace CaryaPOS.Models
             primary key(CategoryID)
             );
             ";
-        
+
+        public static SQLiteConnection GetConnection(LocalDBType type)
+        {
+            string cnnStr = "";
+            if (type == LocalDBType.LocalDB)
+            {
+                cnnStr = new SQLiteConnectionStringBuilder()
+                {
+                    DataSource = readDBSource
+                }.ToString();
+
+            }
+            else
+            {
+                cnnStr = new SQLiteConnectionStringBuilder()
+                {
+                    DataSource = writeDBSource
+                }.ToString();
+            }
+            return new SQLiteConnection(cnnStr);
+        }
+
         public static void CreateDB(LocalDBType type)
         {
             string sql = string.Empty;
@@ -85,7 +105,10 @@ namespace CaryaPOS.Models
             }
 
             SQLiteConnection.CreateFile(dbSource);
-            cnnStrBlder.DataSource = dbSource;
+            var cnnStrBlder = new SQLiteConnectionStringBuilder()
+            {
+                DataSource = dbSource
+            };
 
             using (var cnn = new SQLiteConnection(cnnStrBlder.ToString()))
             {
