@@ -44,12 +44,18 @@
 				Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"
 				ShowsPreview="False"></GridSplitter>
         <Grid x:Name="RightPart" Grid.Column="2">
-			<TabControl>
-				<TabItem Header="Category1"/>
-				<TabItem Header="Category2"/>
-				<TabItem Header="Category3"/>
-				<TabItem Header="Category4"/>
-			</TabControl>
+            <TabControl ItemsSource="{Binding Level1Categories}">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding CategoryName}"/>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding CategoryName}"/>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
 		</Grid>
     </Grid>
 </Window>

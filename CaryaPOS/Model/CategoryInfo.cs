@@ -1,4 +1,4 @@
-﻿using CaryaPOS.Data;
+﻿using CaryaPOS.Dao;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,13 +10,15 @@ namespace CaryaPOS.Model
 {
     public class CategoryInfo
     {
+        private CategoryDao dao;
+        public CategoryInfo()
+        {
+            dao = new CategoryDao();
+        }
+
         public DataTable GetLevel1Categories()
         {
-            using (var cnn = DBHelper.GetConnection(LocalDBType.LocalDB))
-            {
-                cnn.Open();
-            }
-            return null;
+            return dao.GetLevel1Categories();
         }
     }
 }

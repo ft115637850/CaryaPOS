@@ -1,5 +1,4 @@
-﻿using CaryaPOS.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +27,7 @@ namespace CaryaPOS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DBHelper.CreateDB(LocalDBType.LocalDB);
+            //DBHelper.CreateDB(LocalDBType.LocalDB);
         }
     }
 }

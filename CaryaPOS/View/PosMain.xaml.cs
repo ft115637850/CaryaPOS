@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CaryaPOS.Model;
+using CaryaPOS.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,9 @@ namespace CaryaPOS.View
         public PosMain()
         {
             InitializeComponent();
+            var model = new CategoryInfo();
+            var vm = new PosMainViewModel(model.GetLevel1Categories());
+            DataContext = vm;
         }
     }
 }
