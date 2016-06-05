@@ -8,7 +8,7 @@ namespace CaryaPOS.Helper
 {
     class SalesDBHelper : DBHelper
     {
-        public SalesDBHelper()
+        private SalesDBHelper()
             : base("", "SalesDB.db")
         {
         }

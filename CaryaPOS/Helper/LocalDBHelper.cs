@@ -11,6 +11,7 @@ namespace CaryaPOS.Helper
 {
     class LocalDBHelper : DBHelper
     {
+        private static LocalDBHelper dbHelper;
         private const string sqlCreateLocalDBTables = @"
             create table DBVersion
             (
@@ -60,14 +61,23 @@ namespace CaryaPOS.Helper
             );
             ";
 
-        public LocalDBHelper()
-            : base(sqlCreateLocalDBTables, "LocalDB.db")
+        public static LocalDBHelper GetInstance()
         {
+            if (dbHelper==null)
+            {
+                dbHelper = new LocalDBHelper();
+            }
+            return dbHelper;
         }
 
         public IDbConnection GetConnection()
         {
             return new SQLiteConnection(this.ConnectStr);
+        }
+
+        private LocalDBHelper()
+            : base(sqlCreateLocalDBTables, "LocalDB.db")
+        {
         }
 
     }

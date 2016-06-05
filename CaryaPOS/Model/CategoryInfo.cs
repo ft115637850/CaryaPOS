@@ -1,4 +1,5 @@
 ﻿using CaryaPOS.Dao;
+using CaryaPOS.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,15 +11,40 @@ namespace CaryaPOS.Model
 {
     public class CategoryInfo
     {
-        private CategoryDao dao;
+        private LocalDBDao dao;
         public CategoryInfo()
         {
-            dao = new CategoryDao();
+            dao = new LocalDBDao();
         }
 
-        public DataTable GetLevel1Categories()
+        public List<CategoryViewModel> GetGoodsCategoryInfo()
         {
-            return dao.GetLevel1Categories();
+            var categories = dao.GetLevel1Categories();
+            var goodsCategory = dao.GetGoodsCategoryInfo();
+            var categoriesList = new List<CategoryViewModel>();
+            foreach (DataRow row in categories.Rows)
+            {
+                var goodsList = new List<GoodsViewModel>();
+                DataRow[] goodsRows = goodsCategory.Select("categoryid=" + row["CategoryID"]);
+                foreach (DataRow goodsRow in goodsRows)
+                {
+                    var goods = new GoodsViewModel()
+                    {
+                        GoodsID = (int)goodsRow["goodsid"],
+                        ShortName = (string)goodsRow["shortname"]
+                    };
+                    goodsList.Add(goods);
+                }
+
+                var category = new CategoryViewModel()
+                {
+                    CategoryID = (int)row["CategoryID"],
+                    CategoryName = (string)row["CategoryName"],
+                    GoodsList = goodsList
+                };
+                categoriesList.Add(category);
+            }
+            return categoriesList;
         }
     }
 }

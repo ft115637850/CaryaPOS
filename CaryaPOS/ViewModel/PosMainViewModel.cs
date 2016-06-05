@@ -9,10 +9,10 @@ namespace CaryaPOS.ViewModel
 {
     class PosMainViewModel : ViewModelBase
     {
-        public DataTable Level1Categories { get; set; }
-        public PosMainViewModel(DataTable level1Categories)
+        public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
+        public PosMainViewModel(List<CategoryViewModel> goodsCategories)
         {
-            this.Level1Categories = level1Categories;
+            this.GoodsCategoriesInfo = goodsCategories;
         }
     }
 }
