@@ -53,8 +53,19 @@
                 </TabControl.ItemTemplate>
                 <TabControl.ContentTemplate>
                     <DataTemplate>
-                        <ListBox ItemsSource="{Binding GoodsList}" DisplayMemberPath="ShortName">
-                        </ListBox>
+                        <ListView ItemsSource="{Binding GoodsList}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal">
+                                    </WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding ShortName}" Width="70" Height="40"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </DataTemplate>
                 </TabControl.ContentTemplate>
             </TabControl>
