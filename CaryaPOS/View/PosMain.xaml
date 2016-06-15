@@ -6,6 +6,7 @@
 		Background="{DynamicResource MaterialDesignPaper}"
 		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Title="PosMain" MinHeight="768" MinWidth="1024" WindowStyle="None" WindowState="Maximized">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -39,36 +40,43 @@
 					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
 				</Border>
 			</Grid>
-			<Button Grid.Row="1">test</Button>
-		</Grid>
+
+        </Grid>
 		<GridSplitter Grid.Row="0" Grid.Column="1" 
 				Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"
 				ShowsPreview="False"></GridSplitter>
         <Grid x:Name="RightPart" Grid.Column="2">
-            <TabControl ItemsSource="{Binding GoodsCategoriesInfo}">
-                <TabControl.ItemTemplate>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0" ItemsSource="{Binding GoodsCategoriesInfo}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal">
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding CategoryName}"/>
+                        <RadioButton  GroupName="CategoryGroup" Content="{Binding CategoryName}"/>
                     </DataTemplate>
-                </TabControl.ItemTemplate>
-                <TabControl.ContentTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView Grid.Row="1" ItemsSource="{Binding Goods}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal">
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ListView ItemsSource="{Binding GoodsList}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Horizontal">
-                                    </WrapPanel>
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Button Content="{Binding ShortName}" Width="70" Height="40"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                        <Button Content="{Binding ShortName}"  Width="130" Height="100" />
                     </DataTemplate>
-                </TabControl.ContentTemplate>
-            </TabControl>
+                </ListView.ItemTemplate>
+            </ListView>
+            
 		</Grid>
     </Grid>
 </Window>
