@@ -11,5 +11,6 @@ namespace CaryaPOS.ViewModel
         public int GoodsID { get; set; }
         public string GoodsName { get; set; }
         public string ShortName { get; set; }
+        public bool IsVisible { get; set; }
     }
 }

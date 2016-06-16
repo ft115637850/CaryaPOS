@@ -31,7 +31,8 @@ namespace CaryaPOS.Model
                     var goods = new GoodsViewModel()
                     {
                         GoodsID = (int)goodsRow["goodsid"],
-                        ShortName = (string)goodsRow["shortname"]
+                        ShortName = (string)goodsRow["shortname"],
+                        IsVisible = true
                     };
                     goodsList.Add(goods);
                 }
@@ -40,6 +41,7 @@ namespace CaryaPOS.Model
                 {
                     CategoryID = (int)row["CategoryID"],
                     CategoryName = (string)row["CategoryName"],
+                    IsChecked = false,
                     GoodsList = goodsList
                 };
                 categoriesList.Add(category);

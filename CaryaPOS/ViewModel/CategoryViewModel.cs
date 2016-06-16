@@ -10,6 +10,7 @@ namespace CaryaPOS.ViewModel
     {
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
+        public bool IsChecked { get; set; }
         public List<GoodsViewModel> GoodsList { get; set; }
     }
 }

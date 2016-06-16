@@ -59,11 +59,11 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <RadioButton  GroupName="CategoryGroup" Content="{Binding CategoryName}"/>
+                        <RadioButton IsChecked="{Binding IsChecked}" GroupName="CategoryGroup" Content="{Binding CategoryName}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView Grid.Row="1" ItemsSource="{Binding Goods}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView Grid.Row="1" ItemsSource="{Binding GoodsShown}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal">
