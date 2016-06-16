@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +12,7 @@ namespace CaryaPOS.ViewModel
     public class PosMainViewModel : ViewModelBase
     {
         public CategoryViewModel SelectedCategory { get; set; }
-        //TO DO: update to ObservableCollection
-        public List<GoodsViewModel> GoodsShown { get; set; }
+        public  ObservableCollection<GoodsViewModel> GoodsShown { get; set; }
         public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
         public PosMainViewModel(List<CategoryViewModel> goodsCategories)
         {
@@ -25,13 +26,14 @@ namespace CaryaPOS.ViewModel
                 {
                     //Set the reference to PosMainViewModel
                     vm.MainViewModel = this;
+                    Debug.Print(vm.CategoryID + ":" + vm.GoodsList.Count);
                     if (vm.GoodsList.Count > this.SelectedCategory.GoodsList.Count)
                     {
                         SelectedCategory = vm;
                     }
                 }
                 SelectedCategory.IsChecked = true;
-                GoodsShown = SelectedCategory.GoodsList.Select(item => (GoodsViewModel)item.Clone()).ToList();
+                GoodsShown = new ObservableCollection<GoodsViewModel>(SelectedCategory.GoodsList.Select(item => (GoodsViewModel)item.Clone()).ToList());
             }
         }
     }
