@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace CaryaPOS.ViewModel
 {
-    class PosMainViewModel : ViewModelBase
+    public class PosMainViewModel : ViewModelBase
     {
         public CategoryViewModel SelectedCategory { get; set; }
+        //TO DO: update to ObservableCollection
         public List<GoodsViewModel> GoodsShown { get; set; }
         public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
         public PosMainViewModel(List<CategoryViewModel> goodsCategories)
@@ -22,14 +23,15 @@ namespace CaryaPOS.ViewModel
                 //Find the longest list to initialize enough buttons
                 foreach (var vm in goodsCategories)
                 {
+                    //Set the reference to PosMainViewModel
+                    vm.MainViewModel = this;
                     if (vm.GoodsList.Count > this.SelectedCategory.GoodsList.Count)
                     {
                         SelectedCategory = vm;
                     }
                 }
                 SelectedCategory.IsChecked = true;
-                //TO DO: Needs deep copy here
-                GoodsShown = SelectedCategory.GoodsList;
+                GoodsShown = SelectedCategory.GoodsList.Select(item => (GoodsViewModel)item.Clone()).ToList();
             }
         }
     }

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace CaryaPOS.ViewModel
 {
-    public class GoodsViewModel : ViewModelBase
+    public class GoodsViewModel : ViewModelBase, ICloneable
     {
         public int GoodsID { get; set; }
         public string GoodsName { get; set; }
         public string ShortName { get; set; }
-        public bool IsVisible { get; set; }
+        public string IsVisible { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

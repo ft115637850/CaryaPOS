@@ -59,7 +59,8 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <RadioButton IsChecked="{Binding IsChecked}" GroupName="CategoryGroup" Content="{Binding CategoryName}"/>
+                        <RadioButton IsChecked="{Binding IsChecked}" GroupName="CategoryGroup" Content="{Binding CategoryName}" 
+                                     Command="{Binding SelectCategoryCommand}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -72,7 +73,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding ShortName}"  Width="130" Height="100" />
+                        <Button Content="{Binding ShortName}"  Width="130" Height="100" Visibility="{Binding IsVisible}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
