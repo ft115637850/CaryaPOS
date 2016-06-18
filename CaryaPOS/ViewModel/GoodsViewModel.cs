@@ -9,9 +9,7 @@ namespace CaryaPOS.ViewModel
     public class GoodsViewModel : ViewModelBase, ICloneable
     {
         public int GoodsID { get; set; }
-        public string GoodsName { get; set; }
         public string ShortName { get; set; }
-        public string IsVisible { get; set; }
 
         public object Clone()
         {

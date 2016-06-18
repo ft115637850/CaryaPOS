@@ -32,7 +32,6 @@ namespace CaryaPOS.Model
                     {
                         GoodsID = (int)goodsRow["goodsid"],
                         ShortName = (string)goodsRow["shortname"],
-                        IsVisible = "Visible"
                     };
                     goodsList.Add(goods);
                 }
@@ -41,7 +40,6 @@ namespace CaryaPOS.Model
                 {
                     CategoryID = (int)row["CategoryID"],
                     CategoryName = (string)row["CategoryName"],
-                    IsChecked = false,
                     GoodsList = goodsList
                 };
                 categoriesList.Add(category);
