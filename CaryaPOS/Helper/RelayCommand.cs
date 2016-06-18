@@ -10,23 +10,23 @@ namespace CaryaPOS.Helper
     /// Taken from http://msdn.microsoft.com/en-us/magazine/dd419663.aspx#id0090030
     /// </summary>
 
-    public class RelayCommand<T> : ICommand
+    public class RelayCommand : ICommand
     {
         #region Fields
 
-        readonly Action<T> _execute;
-        readonly Predicate<T> _canExecute;
+        readonly Action<object> _execute;
+        readonly Predicate<object> _canExecute;
 
         #endregion // Fields
 
         #region Constructors
 
-        public RelayCommand(Action<T> execute)
+        public RelayCommand(Action<object> execute)
             : this(execute, null)
         {
         }
 
-        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");
@@ -40,7 +40,7 @@ namespace CaryaPOS.Helper
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null ? true : _canExecute((T)parameter);
+            return _canExecute == null ? true : _canExecute(parameter);
         }
 
         public event EventHandler CanExecuteChanged
@@ -51,7 +51,7 @@ namespace CaryaPOS.Helper
 
         public void Execute(object parameter)
         {
-            _execute((T)parameter);
+            _execute(parameter);
         }
 
         #endregion // ICommand Members

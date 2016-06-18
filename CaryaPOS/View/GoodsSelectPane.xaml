@@ -25,106 +25,106 @@
         </ListBox>
         <ScrollViewer Grid.Row="1">
             <WrapPanel x:Name="btnsPane" Orientation="Horizontal" >
-                <Button x:Name="btn1" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn2" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn3" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn4" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn5" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn6" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn7" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn8" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn9" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn10" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn11" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn12" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn13" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn14" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn15" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn16" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn17" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn18" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn19" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn20" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn21" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn22" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn23" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn24" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn25" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn26" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn27" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn28" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn29" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn30" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn31" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn32" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn33" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn34" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn35" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn36" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn37" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn38" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn39" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn40" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn41" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn42" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn43" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn44" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn45" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn46" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn47" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn48" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn49" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn50" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn51" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn52" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn53" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn54" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn55" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn56" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn57" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn58" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn59" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn60" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn61" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn62" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn63" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn64" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn65" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn66" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn67" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn68" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn69" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn70" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn71" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn72" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn73" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn74" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn75" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn76" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn77" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn78" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn79" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn80" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn81" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn82" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn83" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn84" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn85" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn86" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn87" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn88" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn89" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn90" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn91" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn92" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn93" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn94" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn95" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn96" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn97" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn98" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn99" Content=""  Width="130" Height="100"/>
-                <Button x:Name="btn100" Content=""  Width="130" Height="100"/>
+                <Button x:Name="btn1" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn2" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn3" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn4" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn5" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn6" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn7" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn8" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn9" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn10" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn11" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn12" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn13" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn14" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn15" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn16" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn17" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn18" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn19" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn20" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn21" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn22" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn23" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn24" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn25" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn26" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn27" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn28" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn29" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn30" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn31" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn32" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn33" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn34" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn35" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn36" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn37" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn38" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn39" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn40" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn41" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn42" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn43" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn44" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn45" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn46" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn47" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn48" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn49" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn50" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn51" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn52" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn53" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn54" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn55" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn56" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn57" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn58" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn59" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn60" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn61" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn62" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn63" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn64" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn65" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn66" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn67" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn68" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn69" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn70" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn71" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn72" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn73" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn74" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn75" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn76" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn77" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn78" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn79" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn80" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn81" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn82" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn83" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn84" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn85" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn86" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn87" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn88" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn89" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn90" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn91" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn92" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn93" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn94" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn95" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn96" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn97" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn98" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn99" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
+                <Button x:Name="btn100" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
             </WrapPanel>
         </ScrollViewer>
     </Grid>
