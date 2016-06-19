@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaryaPOS.Helper;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace CaryaPOS.ViewModel
     public class PosMainViewModel : ViewModelBase
     {
         public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
+        private RelayCommand addGoodsCommand;
+        public RelayCommand AddGoodsCommand
+        {
+            get
+            {
+                if (addGoodsCommand == null)
+                {
+                    addGoodsCommand = new RelayCommand(AddGoods);
+                }
+                return addGoodsCommand;
+            }
+        }
         public PosMainViewModel(List<CategoryViewModel> goodsCategories)
         {
             this.GoodsCategoriesInfo = goodsCategories;
+        }
+
+        private void AddGoods(object goods)
+        {
+            var s = goods;
         }
     }
 }

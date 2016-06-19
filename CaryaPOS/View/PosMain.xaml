@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:CaryaPOS.ViewModel"
         xmlns:local="clr-namespace:CaryaPOS.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
 		Background="{DynamicResource MaterialDesignPaper}"
 		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
@@ -47,7 +48,13 @@
 				Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"
 				ShowsPreview="False"></GridSplitter>
         <Grid x:Name="RightPart" Grid.Column="2">
-            <local:GoodsSelectPane GoodsCategoriesData="{Binding GoodsCategoriesInfo}"  />           
+            <local:GoodsSelectPane x:Name="goodsPane" GoodsCategoriesData="{Binding GoodsCategoriesInfo}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="OnGoodsSelected">
+                        <i:InvokeCommandAction Command="{Binding AddGoodsCommand}" CommandParameter="{Binding ElementName=goodsPane, Path=SelectedGoodsID}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </local:GoodsSelectPane>         
 		</Grid>
     </Grid>
 </Window>

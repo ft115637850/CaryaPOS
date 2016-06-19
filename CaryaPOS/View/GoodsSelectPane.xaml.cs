@@ -31,9 +31,11 @@ namespace CaryaPOS.View
            DependencyProperty.Register("GoodsCategoriesData", typeof(List<CategoryViewModel>), typeof(GoodsSelectPane), new FrameworkPropertyMetadata(new PropertyChangedCallback(OnDataAssigned)));
         public static readonly DependencyProperty SelectedGoodsIDProperty =
            DependencyProperty.Register("SelectedGoodsID", typeof(int), typeof(GoodsSelectPane), new UIPropertyMetadata(null));
-        public static readonly DependencyProperty GoodsSelectCommandProperty =
-           DependencyProperty.Register("GoodsSelectCommand", typeof(RelayCommand), typeof(GoodsSelectPane), new UIPropertyMetadata(null));
+        public static readonly RoutedEvent OnGoodsSelectedEvent =
+            EventManager.RegisterRoutedEvent("OnGoodsSelected", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(GoodsSelectPane));
+
         private List<Button> goodsBtns = new List<Button>();
+        private RelayCommand goodsClickCommand;
 
         public CategoryViewModel SelectedCategory
         {
@@ -52,13 +54,14 @@ namespace CaryaPOS.View
             get { return (int)GetValue(SelectedGoodsIDProperty); }
             set { SetValue(SelectedGoodsIDProperty, value); }
         }
-        //TO DO: Change GoodsSelectCommand to a Delegate
-        public RelayCommand GoodsSelectCommand { 
-            get{ return (RelayCommand)GetValue(GoodsSelectCommandProperty); }
-            set{ SetValue(GoodsSelectCommandProperty, value); }
+
+        public event RoutedEventHandler OnGoodsSelected
+        {
+            add { AddHandler(OnGoodsSelectedEvent, value); }
+            remove { RemoveHandler(OnGoodsSelectedEvent, value); }
         }
 
-        private RelayCommand goodsClickCommand;
+        
         public RelayCommand GoodsClickCommand
         {
             get {
@@ -85,10 +88,7 @@ namespace CaryaPOS.View
         private void OnGoodsClick(object goods)
         {
             SelectedGoodsID = (int)goods;
-            if (GoodsSelectCommand != null)
-            {
-                //GoodsSelectCommand.
-            }
+            this.RaiseEvent(new RoutedEventArgs(GoodsSelectPane.OnGoodsSelectedEvent));
         }
 
         private static void OnCategorySelected(DependencyObject d, DependencyPropertyChangedEventArgs e)
