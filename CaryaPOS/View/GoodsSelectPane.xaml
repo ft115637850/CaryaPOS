@@ -23,7 +23,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer PanningMode="VerticalOnly" Grid.Row="1">
             <WrapPanel x:Name="btnsPane" Orientation="Horizontal" >
                 <Button x:Name="btn1" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
                 <Button x:Name="btn2" Content=""  Width="130" Height="100" Command="{Binding  ElementName=goodsPane, Path=GoodsClickCommand}"/>
