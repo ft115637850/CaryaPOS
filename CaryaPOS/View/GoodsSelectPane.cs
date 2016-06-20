@@ -23,7 +23,7 @@ namespace CaryaPOS.View
     /// <summary>
     /// Interaction logic for GoodsSelectPane.xaml
     /// </summary>
-    public partial class GoodsSelectPane : UserControl
+    public class GoodsSelectPane : Control
     {
         public static readonly DependencyProperty SelectedCategoryProperty =
            DependencyProperty.Register("SelectedCategory", typeof(CategoryViewModel), typeof(GoodsSelectPane), new UIPropertyMetadata(OnCategorySelected));
@@ -33,7 +33,7 @@ namespace CaryaPOS.View
            DependencyProperty.Register("SelectedGoodsID", typeof(int), typeof(GoodsSelectPane), new UIPropertyMetadata(null));
         public static readonly RoutedEvent OnGoodsSelectedEvent =
             EventManager.RegisterRoutedEvent("OnGoodsSelected", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(GoodsSelectPane));
-
+        
         private List<Button> goodsBtns = new List<Button>();
         private RelayCommand goodsClickCommand;
 
@@ -73,18 +73,30 @@ namespace CaryaPOS.View
             }
         }
 
-        public GoodsSelectPane()
+        static GoodsSelectPane()
         {
-            InitializeComponent();
-            this.goodsBtns.AddRange(new Button[] {this.btn1,this.btn2,this.btn3,this.btn4,this.btn5,
-                                    this.btn6,this.btn7,this.btn8,this.btn9,this.btn10,this.btn11,this.btn12,this.btn13,this.btn14,this.btn15,this.btn16,this.btn17,this.btn18,this.btn19,this.btn20,this.btn21,this.btn22,this.btn23,this.btn24,
-                                    this.btn25,this.btn26,this.btn27,this.btn28,this.btn29,this.btn30,this.btn31,this.btn32,this.btn33,this.btn34,this.btn35,this.btn36,this.btn37,this.btn38,this.btn39,this.btn40,this.btn41,this.btn42,this.btn43,
-                                    this.btn44,this.btn45,this.btn46,this.btn47,this.btn48,this.btn49,this.btn50,this.btn51,this.btn52,this.btn53,this.btn54,this.btn55,this.btn56,this.btn57,this.btn58,this.btn59,this.btn60,this.btn61,this.btn62,
-                                    this.btn63,this.btn64,this.btn65,this.btn66,this.btn67,this.btn68,this.btn69,this.btn70,this.btn71,this.btn72,this.btn73,this.btn74,this.btn75,this.btn76,this.btn77,this.btn78,this.btn79,this.btn80,this.btn81,
-                                    this.btn82,this.btn83,this.btn84,this.btn85,this.btn86,this.btn87,this.btn88,this.btn89,this.btn90,this.btn91,this.btn92,this.btn93,this.btn94,this.btn95,this.btn96,this.btn97,this.btn98,this.btn99,this.btn100
-                                    });
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(GoodsSelectPane), new FrameworkPropertyMetadata(typeof(GoodsSelectPane)));
         }
 
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            ScrollViewer sv = GetTemplateChild("PART_btnsScrollViewer") as ScrollViewer;
+            sv.ManipulationBoundaryFeedback += ScrollViewer_ManipulationBoundaryFeedback;
+            for (int i = 1; i <= 100; i++)
+            {
+                Button btn = GetTemplateChild("PART_btn" + i) as Button;
+                this.goodsBtns.Add(btn);
+            }
+        }
+
+        //TO DO:
+        //public void Dispose()
+        //{
+        //    ScrollViewer sv = GetTemplateChild("PART_btnsScrollViewer") as ScrollViewer;
+        //    sv.ManipulationBoundaryFeedback -= ScrollViewer_ManipulationBoundaryFeedback;
+        //}
+        
         private void OnGoodsClick(object goods)
         {
             SelectedGoodsID = (int)goods;

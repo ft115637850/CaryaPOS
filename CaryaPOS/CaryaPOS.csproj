@@ -74,9 +74,7 @@
     <Compile Include="ViewModel\GoodsViewModel.cs" />
     <Compile Include="ViewModel\PosMainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="View\GoodsSelectPane.xaml.cs">
-      <DependentUpon>GoodsSelectPane.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="View\GoodsSelectPane.cs" />
     <Compile Include="View\PosMain.xaml.cs">
       <DependentUpon>PosMain.xaml</DependentUpon>
     </Compile>
@@ -84,7 +82,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\GoodsSelectPane.xaml">
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\GoodsSelectPane.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
