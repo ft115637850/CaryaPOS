@@ -70,11 +70,6 @@ namespace CaryaPOS.Helper
             return dbHelper;
         }
 
-        public IDbConnection GetConnection()
-        {
-            return new SQLiteConnection(this.ConnectStr);
-        }
-
         private LocalDBHelper()
             : base(sqlCreateLocalDBTables, "LocalDB.db")
         {

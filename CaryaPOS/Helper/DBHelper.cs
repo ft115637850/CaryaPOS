@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -33,6 +34,11 @@ namespace CaryaPOS.Helper
             this.sqlToUpgrade = sqlToUpgrade;
 
             //TO DO: CreateDB UpgradeDB
+        }
+
+        public IDbConnection GetConnection()
+        {
+            return new SQLiteConnection(this.ConnectStr);
         }
 
         private void CreateDB()

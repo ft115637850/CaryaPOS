@@ -48,7 +48,5 @@ namespace CaryaPOS.Dao
                 }
             }
         }
-
-        
     }
 }
