@@ -24,8 +24,11 @@ namespace CaryaPOS.View
         public PosMain()
         {
             InitializeComponent();
-            var model = new CategoryInfo();
-            var vm = new PosMainViewModel(model.GetGoodsCategoryInfo());
+            var category = new CategoryInfo();
+            var salesData = new SalesData();
+            var saleList = salesData.GetCurrentSaleList();
+            var saleListItems = salesData.GetSaleListItem(saleList.SheetID);
+            var vm = new PosMainViewModel(category.GetGoodsCategoryInfo(), saleList, saleListItems);
             DataContext = vm;
         }
     }

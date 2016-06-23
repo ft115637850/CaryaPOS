@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace CaryaPOS.Dao
 {
-    class SalesDBDao
+    class SalesDBDao : BaseDao
     {
-        private SalesDBHelper dbHelper;
         public SalesDBDao()
+            : base(SalesDBHelper.GetInstance())
         {
-            dbHelper = SalesDBHelper.GetInstance();
         }
     }
 }

@@ -12,6 +12,8 @@ namespace CaryaPOS.ViewModel
 {
     public class PosMainViewModel : ViewModelBase
     {
+        public SaleListViewModel SaleList { get; set; }
+        public List<SaleListItemViewModel> SaleListItems { get; set; }
         public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
         private RelayCommand addGoodsCommand;
         public RelayCommand AddGoodsCommand
@@ -25,9 +27,11 @@ namespace CaryaPOS.ViewModel
                 return addGoodsCommand;
             }
         }
-        public PosMainViewModel(List<CategoryViewModel> goodsCategories)
+        public PosMainViewModel(List<CategoryViewModel> goodsCategories, SaleListViewModel saleList, List<SaleListItemViewModel> saleListItems)
         {
             this.GoodsCategoriesInfo = goodsCategories;
+            this.SaleList = saleList;
+            this.SaleListItems = saleListItems;
         }
 
         private void AddGoods(object goods)

@@ -65,13 +65,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dao\BaseDao.cs" />
     <Compile Include="Dao\LocalDBDao.cs" />
     <Compile Include="Dao\SalesDBDao.cs" />
-    <Compile Include="Helper\DBHelper.cs" />
+    <Compile Include="Helper\DBHelpers\DBHelper.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
-    <Compile Include="Helper\SalesDBHelper.cs" />
+    <Compile Include="Helper\DBHelpers\SalesDBHelper.cs" />
     <Compile Include="Model\CategoryInfo.cs" />
-    <Compile Include="Model\SaleListData.cs" />
+    <Compile Include="Model\SalesData.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\GoodsViewModel.cs" />
     <Compile Include="ViewModel\PosMainViewModel.cs" />
@@ -100,7 +101,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\LocalDBHelper.cs" />
+    <Compile Include="Helper\DBHelpers\LocalDBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
