@@ -103,6 +103,10 @@ namespace CaryaPOS.View
             this.RaiseEvent(new RoutedEventArgs(GoodsSelectPane.OnGoodsSelectedEvent));
         }
 
+        /// <summary>
+        /// If use binding to update the buttons, the performance is low and the WrapPanel can not refresh correctly.
+        /// Use event handler to achieve better performance.
+        /// </summary>
         private static void OnCategorySelected(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var goodsPane = (GoodsSelectPane)d;
