@@ -23,7 +23,7 @@ namespace CaryaPOS.Model
 
         public List<SaleListItemViewModel> GetSaleListItem(Guid sheetID)
         {
-            return null;
+            return new List<SaleListItemViewModel>();
         }
     }
 }

@@ -33,15 +33,18 @@
 					<ColumnDefinition Width="3*"/>
 				</Grid.ColumnDefinitions>
 				<Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF686262" >
-					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
+                    <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.SaleValue}"/>
 				</Border>
 				<Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF2E1616" >
-					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
+                    <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.PayValue}"/>
 				</Border>
 				<Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF2E1616" >
-					<TextBlock FontSize="24" Text="112,354" Background="#FFF0F2F7" Margin="1"/>
+                    <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.Change}"/>
 				</Border>
 			</Grid>
+            <Grid x:Name="Detail" Grid.Row="1" DataContext="{Binding SaleListItems}">
+                
+            </Grid>
 
         </Grid>
 		<GridSplitter Grid.Row="0" Grid.Column="1" 
