@@ -24,5 +24,10 @@ namespace CaryaPOS.Dao
         {
             return this.GetData("select goodsid,shortname,categoryid/10000 categoryid from GoodsPrice");
         }
+
+        public DataTable GetGoods(int goodsid)
+        {
+            return this.GetData("select goodsname,price from GoodsPrice where goodsid=" + goodsid);
+        }
     }
 }

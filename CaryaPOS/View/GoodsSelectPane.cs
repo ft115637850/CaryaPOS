@@ -23,6 +23,9 @@ namespace CaryaPOS.View
     /// <summary>
     /// Interaction logic for GoodsSelectPane.xaml
     /// </summary>
+    [TemplatePart(Name = "PART_btn1", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_btn100", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_btnsScrollViewer", Type = typeof(ScrollViewer))]
     public class GoodsSelectPane : Control
     {
         public static readonly DependencyProperty SelectedCategoryProperty =
@@ -82,6 +85,7 @@ namespace CaryaPOS.View
         {
             base.OnApplyTemplate();
             ScrollViewer sv = GetTemplateChild("PART_btnsScrollViewer") as ScrollViewer;
+            //https://social.msdn.microsoft.com/Forums/vstudio/en-US/72af222c-29ff-42ed-aadd-9df43d63ec89/dispose-wpf-usercontrol?forum=wpf
             sv.ManipulationBoundaryFeedback += ScrollViewer_ManipulationBoundaryFeedback;
             for (int i = 1; i <= 100; i++)
             {
@@ -90,13 +94,6 @@ namespace CaryaPOS.View
             }
         }
 
-        //TO DO:
-        //public void Dispose()
-        //{
-        //    ScrollViewer sv = GetTemplateChild("PART_btnsScrollViewer") as ScrollViewer;
-        //    sv.ManipulationBoundaryFeedback -= ScrollViewer_ManipulationBoundaryFeedback;
-        //}
-        
         private void OnGoodsClick(object goods)
         {
             SelectedGoodsID = (int)goods;

@@ -10,10 +10,12 @@ namespace CaryaPOS.Model
 {
     public class SalesData
     {
-        private SalesDBDao dao;
+        private SalesDBDao salesDBDao;
+        private LocalDBDao localDBDao;
         public SalesData()
         {
-            dao = new SalesDBDao();
+            salesDBDao = new SalesDBDao();
+            localDBDao = new LocalDBDao();
         }
 
         public SaleListViewModel GetCurrentSaleList()
@@ -24,6 +26,18 @@ namespace CaryaPOS.Model
         public List<SaleListItemViewModel> GetSaleListItem(Guid sheetID)
         {
             return new List<SaleListItemViewModel>();
+        }
+
+        public SaleListItemViewModel AddGoods(int goodsID)
+        {
+            var goods = localDBDao.GetGoods(goodsID);
+            return new SaleListItemViewModel
+            {
+                GoodsID = goodsID,
+                GoodsName = goods.Rows[0]["GoodsName"].ToString(),
+                Quantity = 1,
+                SaleValue = Convert.ToDecimal(goods.Rows[0]["Price"])
+            };           
         }
     }
 }

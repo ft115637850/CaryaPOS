@@ -31,5 +31,13 @@ namespace CaryaPOS.View
             var vm = new PosMainViewModel(category.GetGoodsCategoryInfo(), saleList, saleListItems);
             DataContext = vm;
         }
+
+        private void Detail_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.Detail.Items.Count > 0)
+            {
+                this.Detail.ScrollIntoView(this.Detail.SelectedItem);
+            }
+        }
     }
 }
