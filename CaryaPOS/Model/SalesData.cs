@@ -20,7 +20,7 @@ namespace CaryaPOS.Model
 
         public SaleListViewModel GetCurrentSaleList()
         {
-            return new SaleListViewModel { Cashier = "", Change = 1, PayValue = 2, SaleValue = 3 };
+            return new SaleListViewModel { SheetID = Guid.NewGuid(), Cashier = "", Change = 1, PayValue = 2, SaleValue = 3 };
         }
 
         public List<SaleListItemViewModel> GetSaleListItem(Guid sheetID)

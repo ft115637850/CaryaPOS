@@ -11,7 +11,7 @@ xmlns:local="clr-namespace:CaryaPOS.View">
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ListBox Grid.Row="0" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedCategory}" ItemsSource="{TemplateBinding GoodsCategoriesData}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox Grid.Row="0" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedCategory, Mode=OneWayToSource}" ItemsSource="{TemplateBinding GoodsCategoriesData}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Horizontal">
@@ -20,7 +20,7 @@ xmlns:local="clr-namespace:CaryaPOS.View">
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Width="130" Height="25" Text="{Binding CategoryName}"/>
+                                    <TextBlock Width="130" Height="25" Text="{Binding CategoryName,Mode=OneTime}"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>

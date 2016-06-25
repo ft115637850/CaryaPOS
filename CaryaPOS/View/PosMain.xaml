@@ -41,12 +41,12 @@
                     <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.Change}"/>
 				</Border>
 			</Grid>
-            <DataGrid x:Name="Detail" Grid.Row="1" ItemsSource="{Binding SaleListItems}" IsReadOnly="True" 
+            <DataGrid x:Name="Detail" Grid.Row="1" ItemsSource="{Binding SaleListItems, Mode=OneWay}" IsReadOnly="True" 
                       AutoGenerateColumns="False" SelectedItem="{Binding CurrentItem, Mode=TwoWay}" SelectionChanged="Detail_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding GoodsName}" Header="GoodsName"/>
-                    <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity"/>
-                    <DataGridTextColumn Binding="{Binding SaleValue, StringFormat={}{0:C}}" Header="SaleValue"/>
+                    <DataGridTextColumn Binding="{Binding GoodsName, Mode=OneWay}" Header="GoodsName"/>
+                    <DataGridTextColumn Binding="{Binding Quantity, Mode=OneWay}" Header="Quantity"/>
+                    <DataGridTextColumn Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -55,10 +55,10 @@
 				Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"
 				ShowsPreview="False"></GridSplitter>
         <Grid x:Name="RightPart" Grid.Column="2">
-            <local:GoodsSelectPane x:Name="goodsPane" GoodsCategoriesData="{Binding GoodsCategoriesInfo}">
+            <local:GoodsSelectPane x:Name="goodsPane" GoodsCategoriesData="{Binding GoodsCategoriesInfo, Mode=OneTime}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="OnGoodsSelected">
-                        <i:InvokeCommandAction Command="{Binding AddGoodsCommand}" CommandParameter="{Binding ElementName=goodsPane, Path=SelectedGoodsID}"/>
+                        <i:InvokeCommandAction Command="{Binding AddGoodsCommand}" CommandParameter="{Binding ElementName=goodsPane, Path=SelectedGoodsID, Mode=OneWay}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </local:GoodsSelectPane>         

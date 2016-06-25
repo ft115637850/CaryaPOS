@@ -60,6 +60,7 @@ namespace CaryaPOS.ViewModel
         {
             var goodsID = (int)goods;
             var newItem = salesData.AddGoods(goodsID);
+            newItem.SheetID = this.SaleList.SheetID;
             this.SaleListItems.Add(newItem);
             this.CurrentItem = newItem;
         }
