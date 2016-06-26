@@ -14,5 +14,10 @@ namespace CaryaPOS.Dao
             : base(SalesDBHelper.GetInstance())
         {
         }
+
+        public DataTable GetOngoingSaleList()
+        {
+            return this.GetData("select * from SALELIST where STATUSFLAG=0");
+        }
     }
 }

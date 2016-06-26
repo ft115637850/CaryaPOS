@@ -32,8 +32,11 @@ namespace CaryaPOS.Helper
                 DataSource = dbSource
             }.ToString();
             this.sqlToUpgrade = sqlToUpgrade;
-
-            //TO DO: CreateDB UpgradeDB
+            if (!File.Exists(this.dbSource))
+            {
+                this.CreateDB();
+            }
+            //TO DO: UpgradeDB
         }
 
         public IDbConnection GetConnection()

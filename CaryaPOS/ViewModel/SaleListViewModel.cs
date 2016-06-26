@@ -10,6 +10,7 @@ namespace CaryaPOS.ViewModel
     {
         public Guid SheetID { get; set; }
         public decimal SaleValue { get; set; }
+        public decimal DiscValue { get; set; }
         public decimal PayValue { get; set; }
         public decimal Change { get; set; }
         public string Cashier { get; set; }

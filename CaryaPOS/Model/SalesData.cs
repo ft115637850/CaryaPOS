@@ -20,6 +20,26 @@ namespace CaryaPOS.Model
 
         public SaleListViewModel GetCurrentSaleList()
         {
+            var sales = salesDBDao.GetOngoingSaleList();
+            var currentSaleList = new SaleListViewModel();
+            if (sales.Rows.Count > 0)
+            {
+                //Ongoing sheet
+                var firstSale = sales.Rows[0];
+                Guid sheetID;
+                Guid.TryParse(Convert.ToString(firstSale["SheetID"]), out sheetID);
+                currentSaleList.SheetID =sheetID;
+                currentSaleList.Cashier = Convert.ToString(firstSale["Cashier"]);
+                currentSaleList.PayValue = Convert.ToDecimal(firstSale["PayValue"]);
+                currentSaleList.SaleValue = Convert.ToDecimal(firstSale["SaleValue"]);
+                currentSaleList.DiscValue = Convert.ToDecimal(firstSale["DiscValue"]);
+                currentSaleList.Change = currentSaleList.PayValue - (currentSaleList.SaleValue - currentSaleList.DiscValue);
+            }
+            else
+            {
+                //New sheet
+
+            }
             return new SaleListViewModel { SheetID = Guid.NewGuid(), Cashier = "", Change = 1, PayValue = 2, SaleValue = 3 };
         }
 
