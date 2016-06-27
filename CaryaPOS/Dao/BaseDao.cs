@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,11 @@ namespace CaryaPOS.Dao
                     data.Load(rdr, LoadOption.OverwriteChanges);
                     return data;
                 }
+                catch (DbException ex)
+                {
+                    Debug.Print("Error SQL:" + sqlTxt);
+                    throw ex;
+                }
                 finally
                 {
                     cnn.Close();
@@ -49,6 +56,11 @@ namespace CaryaPOS.Dao
                     cnn.Open();
                     var data = (T)cmd.ExecuteScalar();
                     return data;
+                }
+                catch (DbException ex)
+                {
+                    Debug.Print("Error SQL:" + sqlTxt);
+                    throw ex;
                 }
                 finally
                 {
