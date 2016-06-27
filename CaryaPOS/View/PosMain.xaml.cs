@@ -39,5 +39,10 @@ namespace CaryaPOS.View
                 this.Detail.ScrollIntoView(this.Detail.SelectedItem);
             }
         }
+
+        private void Detail_ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

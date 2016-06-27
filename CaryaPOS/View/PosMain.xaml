@@ -41,8 +41,9 @@
                     <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.Change}"/>
 				</Border>
 			</Grid>
-            <DataGrid x:Name="Detail" Grid.Row="1" ItemsSource="{Binding SaleListItems, Mode=OneWay}" IsReadOnly="True" 
-                      AutoGenerateColumns="False" SelectedItem="{Binding CurrentItem, Mode=TwoWay}" SelectionChanged="Detail_SelectionChanged">
+            <DataGrid x:Name="Detail" Grid.Row="1" ItemsSource="{Binding SaleListItems, Mode=OneWay}" IsReadOnly="True" ScrollViewer.PanningMode="VerticalOnly"
+                      AutoGenerateColumns="False" SelectedItem="{Binding CurrentItem, Mode=TwoWay}" SelectionChanged="Detail_SelectionChanged"
+                      ManipulationBoundaryFeedback="Detail_ManipulationBoundaryFeedback">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding GoodsName, Mode=OneWay}" Header="GoodsName"/>
                     <DataGridTextColumn Binding="{Binding Quantity, Mode=OneWay}" Header="Quantity"/>
