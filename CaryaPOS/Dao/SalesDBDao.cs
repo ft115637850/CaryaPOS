@@ -19,5 +19,10 @@ namespace CaryaPOS.Dao
         {
             return this.GetData("select * from SALELIST where STATUSFLAG=0");
         }
+
+        public void NewSaleList(string sheetID)
+        {
+
+        }
     }
 }

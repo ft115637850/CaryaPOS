@@ -68,5 +68,29 @@ namespace CaryaPOS.Dao
                 }
             }
         }
+
+        protected int ExecuteNonQuery(string sqlTxt)
+        {
+            using (var cnn = dbHelper.GetConnection())
+            {
+                try
+                {
+                    var cmd = cnn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sqlTxt;
+                    cnn.Open();
+                    return cmd.ExecuteNonQuery();
+                }
+                catch (DbException ex)
+                {
+                    Debug.Print("Error SQL:" + sqlTxt);
+                    throw ex;
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+        }
     }
 }

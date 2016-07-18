@@ -28,7 +28,7 @@ namespace CaryaPOS.Model
                 var firstSale = sales.Rows[0];
                 Guid sheetID;
                 Guid.TryParse(Convert.ToString(firstSale["SheetID"]), out sheetID);
-                currentSaleList.SheetID =sheetID;
+                currentSaleList.SheetID = sheetID;
                 currentSaleList.Cashier = Convert.ToString(firstSale["Cashier"]);
                 currentSaleList.PayValue = Convert.ToDecimal(firstSale["PayValue"]);
                 currentSaleList.SaleValue = Convert.ToDecimal(firstSale["SaleValue"]);
