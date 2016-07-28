@@ -22,11 +22,12 @@ namespace CaryaPOS.Model
         {
             var sales = salesDBDao.GetOngoingSaleList();
             var currentSaleList = new SaleListViewModel();
+            Guid sheetID;
             if (sales.Rows.Count > 0)
             {
                 //Ongoing sheet
                 var firstSale = sales.Rows[0];
-                Guid sheetID;
+                
                 Guid.TryParse(Convert.ToString(firstSale["SheetID"]), out sheetID);
                 currentSaleList.SheetID = sheetID;
                 currentSaleList.Cashier = Convert.ToString(firstSale["Cashier"]);
@@ -38,9 +39,17 @@ namespace CaryaPOS.Model
             else
             {
                 //New sheet
-
+                sheetID = Guid.NewGuid();
+                salesDBDao.NewSaleList(sheetID.ToString());
+                currentSaleList.SheetID = sheetID;
+                //TO DO: update to login user
+                currentSaleList.Cashier = "";
+                currentSaleList.Change = 0;
+                currentSaleList.PayValue = 0;
+                currentSaleList.SaleValue = 0;
+                currentSaleList.DiscValue = 0;
             }
-            return new SaleListViewModel { SheetID = Guid.NewGuid(), Cashier = "", Change = 1, PayValue = 2, SaleValue = 3 };
+            return currentSaleList;
         }
 
         public List<SaleListItemViewModel> GetSaleListItem(Guid sheetID)
