@@ -72,6 +72,7 @@
     <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Helper\DBHelpers\SalesDBHelper.cs" />
     <Compile Include="Model\CategoryInfo.cs" />
+    <Compile Include="Model\SaleListViewModelDTConverter.cs" />
     <Compile Include="Model\SalesData.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\GoodsViewModel.cs" />
@@ -119,7 +120,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -21,34 +21,18 @@ namespace CaryaPOS.Model
         public SaleListViewModel GetCurrentSaleList()
         {
             var sales = salesDBDao.GetOngoingSaleList();
-            var currentSaleList = new SaleListViewModel();
-            Guid sheetID;
-            if (sales.Rows.Count > 0)
+            var currentSaleList = SaleListViewModelDTConverter.GetModel(sales);
+            if (sales.Rows.Count == 0)
             {
-                //Ongoing sheet
-                var firstSale = sales.Rows[0];
-                
-                Guid.TryParse(Convert.ToString(firstSale["SheetID"]), out sheetID);
-                currentSaleList.SheetID = sheetID;
-                currentSaleList.Cashier = Convert.ToString(firstSale["Cashier"]);
-                currentSaleList.PayValue = Convert.ToDecimal(firstSale["PayValue"]);
-                currentSaleList.SaleValue = Convert.ToDecimal(firstSale["SaleValue"]);
-                currentSaleList.DiscValue = Convert.ToDecimal(firstSale["DiscValue"]);
-                currentSaleList.Change = currentSaleList.PayValue - (currentSaleList.SaleValue - currentSaleList.DiscValue);
+                salesDBDao.NewSaleList(
+                    currentSaleList.SheetID.ToString(),
+                    currentSaleList.CashierID,
+                    currentSaleList.ShopID,
+                    currentSaleList.PayValue,
+                    currentSaleList.SaleValue,
+                    currentSaleList.DiscValue);
             }
-            else
-            {
-                //New sheet
-                sheetID = Guid.NewGuid();
-                salesDBDao.NewSaleList(sheetID.ToString());
-                currentSaleList.SheetID = sheetID;
-                //TO DO: update to login user
-                currentSaleList.Cashier = "";
-                currentSaleList.Change = 0;
-                currentSaleList.PayValue = 0;
-                currentSaleList.SaleValue = 0;
-                currentSaleList.DiscValue = 0;
-            }
+
             return currentSaleList;
         }
 
