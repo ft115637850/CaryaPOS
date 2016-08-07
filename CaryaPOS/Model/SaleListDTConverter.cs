@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CaryaPOS.Model
 {
-    public class SaleListViewModelDTConverter
+    public class SaleListDTConverter
     {
         public static SaleListViewModel GetModel(DataTable dtData)
         {

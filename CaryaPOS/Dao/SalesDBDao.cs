@@ -31,5 +31,27 @@ namespace CaryaPOS.Dao
                 + saleValue + ","
                 + discValue + ",0)");
         }
+
+        public void UpdateSaleList(string sheetID, decimal payValue, decimal saleValue, decimal discValue)
+        {
+            this.ExecuteNonQuery("update SALELIST set PAYVALUE=" + payValue +
+                ",SALEVALUE=" + saleValue +
+                ",DISCVALUE= " + discValue + 
+                " where sheetid='" + sheetID + "'");
+        }
+
+        public void AddSaleListItem(string sheetID, int goodsID, string barcodeID, decimal quantity, decimal cost, decimal price, decimal saleValue, decimal discValue)
+        {
+            this.ExecuteNonQuery("insert into SALELISTITEM (SHEETID,REQTIME,GOODSID,BARCODEID,QTY,COST,NORMALPRICE,SALEVALUE,DISCVALUE) values ('"
+               + sheetID + "','"
+               + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "',"
+               + goodsID + ",'"
+               + barcodeID + "',"
+               + quantity + ","
+               + cost + ","
+               + price + ","
+               + saleValue + ","
+               + discValue + ")");
+        }
     }
 }

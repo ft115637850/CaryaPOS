@@ -2,6 +2,7 @@
 using CaryaPOS.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace CaryaPOS.Model
         public SaleListViewModel GetCurrentSaleList()
         {
             var sales = salesDBDao.GetOngoingSaleList();
-            var currentSaleList = SaleListViewModelDTConverter.GetModel(sales);
+            var currentSaleList = SaleListDTConverter.GetModel(sales);
             if (sales.Rows.Count == 0)
             {
                 salesDBDao.NewSaleList(
@@ -41,16 +42,41 @@ namespace CaryaPOS.Model
             return new List<SaleListItemViewModel>();
         }
 
-        public SaleListItemViewModel AddGoods(int goodsID)
+        public SaleListItemViewModel AddGoods(int goodsID, SaleListViewModel saleList, ObservableCollection<SaleListItemViewModel> salelistItems)
         {
             var goods = localDBDao.GetGoods(goodsID);
-            return new SaleListItemViewModel
+            var newItem = new SaleListItemViewModel
             {
                 GoodsID = goodsID,
                 GoodsName = goods.Rows[0]["GoodsName"].ToString(),
+                BarcodeID = goods.Rows[0]["barcodeid"].ToString(),
                 Quantity = 1,
-                SaleValue = Convert.ToDecimal(goods.Rows[0]["Price"])
-            };           
+                Price = Convert.ToDecimal(goods.Rows[0]["Price"]),
+                SaleValue = Convert.ToDecimal(goods.Rows[0]["Price"]) * 1,
+                Cost = Convert.ToDecimal(goods.Rows[0]["cost"]),
+            };
+
+            salelistItems.Add(newItem);
+            this.UpdateSalesData(saleList, salelistItems);
+            salesDBDao.AddSaleListItem(newItem.SheetID.ToString(), 
+                newItem.GoodsID,
+                newItem.BarcodeID, 
+                newItem.Quantity,
+                newItem.Cost, 
+                newItem.Price, 
+                newItem.SaleValue, 
+                newItem.DiscValue);
+            return newItem;
+        }
+
+        public void UpdateSalesData(SaleListViewModel saleList, ObservableCollection<SaleListItemViewModel> salelistItems)
+        {
+            //TO DO: Process sales promotion
+            saleList.SaleValue = salelistItems.Sum(x => x.SaleValue);
+            saleList.DiscValue = salelistItems.Sum(x => x.DiscValue);
+            //TO DO: Process Payment
+            saleList.PayValue = 0;
+            this.salesDBDao.UpdateSaleList(saleList.SheetID.ToString(), saleList.PayValue, saleList.SaleValue, saleList.DiscValue);
         }
     }
 }
