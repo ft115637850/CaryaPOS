@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,8 @@ namespace CaryaPOS.Dao
         {
             this.dbHelper = myDBHelper;
         }
-        protected DataTable GetData(string sqlTxt)
+
+        protected DataTable GetData(string sqlTxt, SQLiteParameter[] parms)
         {
             using (var cnn = dbHelper.GetConnection())
             {
@@ -26,6 +28,14 @@ namespace CaryaPOS.Dao
                     var cmd = cnn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = sqlTxt;
+                    if (parms!=null)
+                    {
+                        foreach (var parm in parms)
+                        {
+                            cmd.Parameters.Add(parm);
+                        }
+                    }
+
                     cnn.Open();
                     var rdr = cmd.ExecuteReader();
                     var data = new DataTable();
@@ -44,7 +54,7 @@ namespace CaryaPOS.Dao
             }
         }
 
-        protected T GetSingleValue<T>(string sqlTxt)
+        protected T GetSingleValue<T>(string sqlTxt, SQLiteParameter[] parms)
         {
             using (var cnn = dbHelper.GetConnection())
             {
@@ -53,6 +63,14 @@ namespace CaryaPOS.Dao
                     var cmd = cnn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = sqlTxt;
+                    if (parms != null)
+                    {
+                        foreach (var parm in parms)
+                        {
+                            cmd.Parameters.Add(parm);
+                        }
+                    }
+
                     cnn.Open();
                     var data = (T)cmd.ExecuteScalar();
                     return data;
@@ -69,7 +87,7 @@ namespace CaryaPOS.Dao
             }
         }
 
-        protected int ExecuteNonQuery(string sqlTxt)
+        protected int ExecuteNonQuery(string sqlTxt, SQLiteParameter[] parms)
         {
             using (var cnn = dbHelper.GetConnection())
             {
@@ -78,6 +96,14 @@ namespace CaryaPOS.Dao
                     var cmd = cnn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = sqlTxt;
+                    if (parms != null)
+                    {
+                        foreach (var parm in parms)
+                        {
+                            cmd.Parameters.Add(parm);
+                        }
+                    }
+
                     cnn.Open();
                     return cmd.ExecuteNonQuery();
                 }

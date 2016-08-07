@@ -39,7 +39,7 @@ namespace CaryaPOS.Model
 
         public List<SaleListItemViewModel> GetSaleListItem(Guid sheetID)
         {
-            return new List<SaleListItemViewModel>();
+            return SaleListItemDTConverter.GetModel(salesDBDao.GetSaleListItems(sheetID.ToString())); ;
         }
 
         public SaleListItemViewModel AddGoods(int goodsID, SaleListViewModel saleList, ObservableCollection<SaleListItemViewModel> salelistItems)
@@ -47,13 +47,14 @@ namespace CaryaPOS.Model
             var goods = localDBDao.GetGoods(goodsID);
             var newItem = new SaleListItemViewModel
             {
+                SheetID = saleList.SheetID,
                 GoodsID = goodsID,
                 GoodsName = goods.Rows[0]["GoodsName"].ToString(),
                 BarcodeID = goods.Rows[0]["barcodeid"].ToString(),
                 Quantity = 1,
                 Price = Convert.ToDecimal(goods.Rows[0]["Price"]),
                 SaleValue = Convert.ToDecimal(goods.Rows[0]["Price"]) * 1,
-                Cost = Convert.ToDecimal(goods.Rows[0]["cost"]),
+                Cost = Convert.ToDecimal(goods.Rows[0]["cost"])
             };
 
             salelistItems.Add(newItem);
@@ -76,6 +77,7 @@ namespace CaryaPOS.Model
             saleList.DiscValue = salelistItems.Sum(x => x.DiscValue);
             //TO DO: Process Payment
             saleList.PayValue = 0;
+            saleList.Change = saleList.PayValue - saleList.SaleValue + saleList.DiscValue;
             this.salesDBDao.UpdateSaleList(saleList.SheetID.ToString(), saleList.PayValue, saleList.SaleValue, saleList.DiscValue);
         }
     }
