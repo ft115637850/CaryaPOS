@@ -34,7 +34,7 @@ namespace CaryaPOS.Dao
             };
 
             parms[0].Value = goodsid;
-            return this.GetData("select goodsname,price,barcodeid,cost from GoodsPrice where goodsid=@goodsid", parms);
+            return this.GetData("select shortname,price,barcodeid,cost from GoodsPrice where goodsid=@goodsid", parms);
         }
     }
 }

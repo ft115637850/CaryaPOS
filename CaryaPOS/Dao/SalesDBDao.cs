@@ -25,7 +25,7 @@ namespace CaryaPOS.Dao
         {
             SQLiteParameter[] parms = new SQLiteParameter[]
             {
-                new SQLiteParameter("@sheetID", SqlDbType.VarChar)
+                new SQLiteParameter("@sheetID", DbType.String)
             };
 
             parms[0].Value = sheetID;
@@ -73,32 +73,38 @@ namespace CaryaPOS.Dao
             this.ExecuteNonQuery("update SALELIST set PAYVALUE=@payValue,SALEVALUE=@saleValue,DISCVALUE=@discValue where sheetid=@sheetID", parms);
         }
 
-        public void AddSaleListItem(string sheetID, int goodsID, string barcodeID, decimal quantity, decimal cost, decimal price, decimal saleValue, decimal discValue)
+        public void AddSaleListItem(string sheetID,int seqID, int goodsID,string goodsname, string barcodeID, decimal quantity, decimal cost, decimal saleprice, decimal saleValue, decimal discValue)
         {
             SQLiteParameter[] parms = new SQLiteParameter[]
             {
                 new SQLiteParameter("@sheetID", DbType.String),
+                new SQLiteParameter("@seqID", DbType.Int32),
                 new SQLiteParameter("@reqtime", DbType.Time),
                 new SQLiteParameter("@goodsID", DbType.Int32),
+                new SQLiteParameter("@goodsname", DbType.String),
                 new SQLiteParameter("@barcodeID", DbType.String),
                 new SQLiteParameter("@quantity", DbType.Decimal),
                 new SQLiteParameter("@cost", DbType.Decimal),
                 new SQLiteParameter("@normalprice", DbType.Decimal),
+                new SQLiteParameter("@saleprice", DbType.Decimal),
                 new SQLiteParameter("@saleValue", DbType.Decimal),
                 new SQLiteParameter("@discValue", DbType.Decimal)
             };
 
             parms[0].Value = sheetID;
-            parms[1].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-            parms[2].Value = goodsID;
-            parms[3].Value = barcodeID;
-            parms[4].Value = quantity;
-            parms[5].Value = cost;
-            parms[6].Value = price;
-            parms[7].Value = saleValue;
-            parms[8].Value = discValue;
-            this.ExecuteNonQuery("insert into SALELISTITEM (SHEETID,REQTIME,GOODSID,BARCODEID,QTY,COST,NORMALPRICE,SALEVALUE,DISCVALUE) values ("
-               + "@sheetID,@reqtime,@goodsID,@barcodeID,@quantity,@cost,@normalprice,@saleValue,@discValue)", parms);
+            parms[1].Value = seqID;
+            parms[2].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            parms[3].Value = goodsID;
+            parms[4].Value = goodsname;
+            parms[5].Value = barcodeID;
+            parms[6].Value = quantity;
+            parms[7].Value = cost;
+            parms[8].Value = saleprice;     //TO DO: Update to normalprice in promotion
+            parms[9].Value = saleprice;
+            parms[10].Value = saleValue;
+            parms[11].Value = discValue;
+            this.ExecuteNonQuery("insert into SALELISTITEM (SHEETID,SEQID,REQTIME,GOODSID,GOODSNAME,BARCODEID,QTY,COST,NORMALPRICE,SALEPRICE,SALEVALUE,DISCVALUE) values ("
+               + "@sheetID,@seqID,@reqtime,@goodsID,@goodsname,@barcodeID,@quantity,@cost,@normalprice,@saleprice,@saleValue,@discValue)", parms);
         }
     }
 }
