@@ -21,7 +21,7 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-			<Grid x:Name="Summary"  Grid.Row="0"  Background="#FFDBF3EF">
+			<Grid x:Name="Summary"  Grid.Row="0">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="1*"/>
 					<RowDefinition Height="1*"/>
@@ -31,15 +31,12 @@
 					<ColumnDefinition Width="2*"/>
 					<ColumnDefinition Width="3*"/>
 				</Grid.ColumnDefinitions>
-				<Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF686262" >
-                    <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.SaleValue}"/>
-				</Border>
-				<Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF2E1616" >
-                    <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.PayValue}"/>
-				</Border>
-				<Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="1" Background="#FF2E1616" >
-                    <TextBlock FontSize="24" Background="#FFF0F2F7" Margin="1" Text="{Binding SaleList.Change}"/>
-				</Border>
+                <TextBlock Grid.Row="0" Grid.Column="0" FontSize="24" Text="Total"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="24" Text="Pay"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" FontSize="24" Text="Change"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" FontSize="24" Text="{Binding SaleList.SaleValue}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" FontSize="24" Text="{Binding SaleList.PayValue}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" FontSize="24" Text="{Binding SaleList.Change}"/>
 			</Grid>
             <DataGrid x:Name="Detail" Grid.Row="1" ItemsSource="{Binding SaleListItems, Mode=OneWay}" IsReadOnly="True" ScrollViewer.PanningMode="VerticalOnly"
                       AutoGenerateColumns="False" SelectedItem="{Binding CurrentItem, Mode=TwoWay}" SelectionChanged="Detail_SelectionChanged"
@@ -50,7 +47,10 @@
                     <DataGridTextColumn Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
                 </DataGrid.Columns>
             </DataGrid>
-
+            <UniformGrid Grid.Row="2" Rows="2" Columns="2">
+                <Button Content="Pay"/>
+                <Button Content="Exit"/>
+            </UniformGrid>
         </Grid>
 		<GridSplitter Grid.Row="0" Grid.Column="1" 
 				Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"
