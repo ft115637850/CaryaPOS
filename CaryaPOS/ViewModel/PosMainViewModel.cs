@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CaryaPOS.ViewModel
 {
@@ -15,6 +16,8 @@ namespace CaryaPOS.ViewModel
     {
         private SaleListItemViewModel currentItem;
         private RelayCommand addGoodsCommand;
+        private RelayCommand payCommand;
+        private RelayCommand exitCommand;
         private SalesData salesData;
 
         public SaleListViewModel SaleList { get; set; }
@@ -48,6 +51,31 @@ namespace CaryaPOS.ViewModel
                 return addGoodsCommand;
             }
         }
+
+        public RelayCommand PayCommand
+        {
+            get
+            {
+                if (payCommand == null)
+                {
+                    payCommand = new RelayCommand(Pay);
+                }
+                return payCommand;
+            }
+        }
+
+        public RelayCommand ExitCommand
+        {
+            get
+            {
+                if (exitCommand==null)
+                {
+                    exitCommand = new RelayCommand(Exit);
+                }
+                return exitCommand;
+            }
+        }
+
         public PosMainViewModel(List<CategoryViewModel> goodsCategories, SaleListViewModel saleList, List<SaleListItemViewModel> saleListItems)
         {
             this.GoodsCategoriesInfo = goodsCategories;
@@ -61,6 +89,22 @@ namespace CaryaPOS.ViewModel
             var goodsID = (int)goods;
             var newItem = salesData.AddGoods(goodsID, this.SaleList, this.SaleListItems);
             this.CurrentItem = newItem;
+        }
+
+        private void Pay(object param)
+        {
+            // Get the total pay value
+            // PayValue - DiscValue
+
+            // Get the total payed records
+
+
+            // Bring up the payment UI
+        }
+
+        private void Exit(object param)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

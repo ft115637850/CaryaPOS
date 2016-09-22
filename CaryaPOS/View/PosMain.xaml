@@ -18,7 +18,7 @@
 		<Grid x:Name="LeftPart"  Grid.Column="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 			<Grid x:Name="Summary"  Grid.Row="0">
@@ -31,9 +31,9 @@
 					<ColumnDefinition Width="2*"/>
 					<ColumnDefinition Width="3*"/>
 				</Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" FontSize="24" Text="Total"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="24" Text="Pay"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" FontSize="24" Text="Change"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="24" Text="Total"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontSize="24" Text="Pay"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" FontSize="24" Text="Change"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" FontSize="24" Text="{Binding SaleList.SaleValue}"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" FontSize="24" Text="{Binding SaleList.PayValue}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1" FontSize="24" Text="{Binding SaleList.Change}"/>
@@ -47,9 +47,11 @@
                     <DataGridTextColumn Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <UniformGrid Grid.Row="2" Rows="2" Columns="2">
-                <Button Content="Pay"/>
-                <Button Content="Exit"/>
+            <UniformGrid Grid.Row="2" Rows="1" Columns="4">
+                <Button Content="Pay" Command="{Binding PayCommand}"/>
+                <Button Content="Hold"/>
+                <Button Content="Cancel"/>
+                <Button Content="Exit" Command="{Binding ExitCommand}"/>
             </UniformGrid>
         </Grid>
 		<GridSplitter Grid.Row="0" Grid.Column="1" 
