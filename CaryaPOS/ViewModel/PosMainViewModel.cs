@@ -81,20 +81,20 @@ namespace CaryaPOS.ViewModel
             this.GoodsCategoriesInfo = goodsCategories;
             this.SaleList = saleList;
             this.SaleListItems = new ObservableCollection<SaleListItemViewModel>(saleListItems);
-            salesData = new SalesData();
+            this.salesData = new SalesData();
         }
 
         private void AddGoods(object goods)
         {
             var goodsID = (int)goods;
-            var newItem = salesData.AddGoods(goodsID, this.SaleList, this.SaleListItems);
+            var newItem = this.salesData.AddGoods(goodsID, this.SaleList, this.SaleListItems);
             this.CurrentItem = newItem;
         }
 
         private void Pay(object param)
         {
-            // Get the total pay value
-            // PayValue - DiscValue
+            // Get the total value
+            this.salesData.CalcTotalValue(this.SaleList, this.SaleListItems);
 
             // Get the total payed records
 
