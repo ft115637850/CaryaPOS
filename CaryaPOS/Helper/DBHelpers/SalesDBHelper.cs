@@ -19,6 +19,7 @@ namespace CaryaPOS.Helper
             VersionDesc varchar(50),
             primary key(DBVersionID)
             );
+
             CREATE TABLE SALELIST
             (
             SHEETID			VARCHAR(50),
@@ -45,6 +46,7 @@ namespace CaryaPOS.Helper
             NOTES			VARCHAR(255),
             PRIMARY KEY(SHEETID)
             );
+
             CREATE TABLE SALELISTITEM
             (
             SHEETID			VARCHAR(50),
@@ -68,6 +70,7 @@ namespace CaryaPOS.Helper
             COUPONNO		VARCHAR(50),
             PRIMARY KEY (SHEETID,SEQID)
             );
+
             CREATE TABLE SALELISTHIST
             (
             SHEETID			VARCHAR(50),
@@ -94,6 +97,7 @@ namespace CaryaPOS.Helper
             NOTES			VARCHAR(255),
             PRIMARY KEY(SHEETID)
             );
+
             CREATE TABLE SALELISTITEMHIST
             (
             SHEETID			VARCHAR(50),
@@ -117,6 +121,45 @@ namespace CaryaPOS.Helper
             COUPONNO		VARCHAR(50),
             PRIMARY KEY (SHEETID,SEQID)
             );
+
+            CREATE TABLE SALELISTPAY
+            (
+            SHEETID      VARCHAR(50),
+            SEQID        INT,
+            PAYTIME      DATETIME,
+            PAYTYPEID    INT,
+            PAYTYPENAME  VARCHAR(25),
+            CURRENCYCODE CHAR(3),
+            RATE         DECIMAL(10,7),
+            PAYVALUE     DECIMAL(10,2),
+            REALVALUE    DECIMAL(10,2),
+            CARDNO       VARCHAR(30),
+            CARDOLDVALUE DECIMAL(10,2),
+            CARDNEWVALUE DECIMAL(10,2),
+            CARDID       INT,
+            CARDTYPE     VARCHAR(25),
+            PRIMARY KEY (SHEETID,SEQID)     
+            );
+
+            CREATE TABLE SALELISTPAYHIST
+            (
+            SHEETID      VARCHAR(50),
+            SEQID        INT,
+            PAYTIME      DATETIME,
+            PAYTYPEID    INT,
+            PAYTYPENAME  VARCHAR(25),
+            CURRENCYCODE CHAR(3),
+            RATE         DECIMAL(10,7),
+            PAYVALUE     DECIMAL(10,2),
+            REALVALUE    DECIMAL(10,2),
+            CARDNO       VARCHAR(30),
+            CARDOLDVALUE DECIMAL(10,2),
+            CARDNEWVALUE DECIMAL(10,2),
+            CARDID       INT,
+            CARDTYPE     VARCHAR(25),
+            PRIMARY KEY (SHEETID,SEQID)     
+            );
+
             ";
 
         public static SalesDBHelper GetInstance()
