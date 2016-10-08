@@ -76,12 +76,16 @@
     <Compile Include="Model\SaleListDTConverter.cs" />
     <Compile Include="Model\SaleListItemDTConverter.cs" />
     <Compile Include="Model\SalesData.cs" />
+    <Compile Include="ViewModel\CashPayViewModel.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\GoodsViewModel.cs" />
     <Compile Include="ViewModel\PosMainViewModel.cs" />
     <Compile Include="ViewModel\SaleListItemViewModel.cs" />
     <Compile Include="ViewModel\SaleListViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\CashPay.xaml.cs">
+      <DependentUpon>CashPay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GoodsSelectPane.cs" />
     <Compile Include="View\PosMain.xaml.cs">
       <DependentUpon>PosMain.xaml</DependentUpon>
@@ -95,6 +99,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\GoodsSelectPane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CashPay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

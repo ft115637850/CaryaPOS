@@ -16,7 +16,7 @@ namespace CaryaPOS.ViewModel
     {
         private SaleListItemViewModel currentItem;
         private RelayCommand addGoodsCommand;
-        private RelayCommand payCommand;
+        private RelayCommand cashPayCommand;
         private RelayCommand exitCommand;
         private SalesData salesData;
 
@@ -52,15 +52,15 @@ namespace CaryaPOS.ViewModel
             }
         }
 
-        public RelayCommand PayCommand
+        public RelayCommand CashPayCommand
         {
             get
             {
-                if (payCommand == null)
+                if (cashPayCommand == null)
                 {
-                    payCommand = new RelayCommand(Pay);
+                    cashPayCommand = new RelayCommand(CashPay);
                 }
-                return payCommand;
+                return cashPayCommand;
             }
         }
 
@@ -91,7 +91,7 @@ namespace CaryaPOS.ViewModel
             this.CurrentItem = newItem;
         }
 
-        private void Pay(object param)
+        private void CashPay(object param)
         {
             // Get the total value
             this.salesData.CalcTotalValue(this.SaleList, this.SaleListItems);
