@@ -73,6 +73,8 @@
     <Compile Include="Helper\DBHelpers\SalesDBHelper.cs" />
     <Compile Include="Model\CategoryInfo.cs" />
     <Compile Include="Model\PaymentCalculator.cs" />
+    <Compile Include="Model\Pay\CashPayProcessor.cs" />
+    <Compile Include="Model\Pay\PayProcessor.cs" />
     <Compile Include="Model\SaleListDTConverter.cs" />
     <Compile Include="Model\SaleListItemDTConverter.cs" />
     <Compile Include="Model\SalesData.cs" />

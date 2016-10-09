@@ -106,5 +106,32 @@ namespace CaryaPOS.Dao
             this.ExecuteNonQuery("insert into SALELISTITEM (SHEETID,SEQID,REQTIME,GOODSID,GOODSNAME,BARCODEID,QTY,COST,NORMALPRICE,SALEPRICE,SALEVALUE,DISCVALUE) values ("
                + "@sheetID,@seqID,@reqtime,@goodsID,@goodsname,@barcodeID,@quantity,@cost,@normalprice,@saleprice,@saleValue,@discValue)", parms);
         }
+
+        public decimal GetTotalPayValue(string sheetID)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String)
+            };
+
+            parms[0].Value = sheetID;
+            //TO DO: Multi Currency support
+            var data = this.GetSingleValue<decimal>("select sum(PAYVALUE) from SALELISTPAY where sheetID=@sheetID", parms);
+            return data == null ? 0 : (decimal)data;
+        }
+
+        public decimal GetPayItemValue(string sheetID, int payTypeID)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String),
+                new SQLiteParameter("@payTypeID", DbType.Int32),
+            };
+
+            parms[0].Value = sheetID;
+            //TO DO: Multi Currency support
+            var data = this.GetSingleValue<decimal>("select sum(PAYVALUE) from SALELISTPAY where sheetID=@sheetID and PAYTYPEID=@payTypeID", parms);
+            return data == null ? 0 : (decimal)data;
+        }
     }
 }

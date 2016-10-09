@@ -54,7 +54,7 @@ namespace CaryaPOS.Dao
             }
         }
 
-        protected T GetSingleValue<T>(string sqlTxt, SQLiteParameter[] parms)
+        protected T? GetSingleValue<T>(string sqlTxt, SQLiteParameter[] parms) where T : struct
         {
             using (var cnn = dbHelper.GetConnection())
             {
@@ -72,8 +72,15 @@ namespace CaryaPOS.Dao
                     }
 
                     cnn.Open();
-                    var data = (T)cmd.ExecuteScalar();
-                    return data;
+                    var data = cmd.ExecuteScalar();
+                    if (data == null || Convert.IsDBNull(data))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return (T)data;
+                    }
                 }
                 catch (DbException ex)
                 {

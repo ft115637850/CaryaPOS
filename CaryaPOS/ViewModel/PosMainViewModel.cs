@@ -1,5 +1,6 @@
 ﻿using CaryaPOS.Helper;
 using CaryaPOS.Model;
+using CaryaPOS.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -93,13 +94,29 @@ namespace CaryaPOS.ViewModel
 
         private void CashPay(object param)
         {
-            // Get the total value
+            //Process promotion and get the total value
             this.salesData.CalcTotalValue(this.SaleList, this.SaleListItems);
-
+            
             // Get the total payed records
-
+            PayProcessor payProcessor = new CashPayProcessor(this.SaleList.SheetID.ToString());
+            decimal payIn = payProcessor.GetTotalPayValue();
+            decimal inputAmount = payProcessor.GetPayItemValue();
 
             // Bring up the payment UI
+            var cashPayVM = new CashPayViewModel()
+            {
+                Purchase = this.SaleList.SaleValue - this.SaleList.DiscValue,
+                PayIn = payIn,
+                Change = this.SaleList.SaleValue - this.SaleList.DiscValue - this.SaleList.PayValue,
+                InputAmount = inputAmount
+            };
+
+            var cashPayWin = new CashPay() { DataContext = cashPayVM };
+            if (cashPayWin.ShowDialog() == true)
+            {
+                this.SaleList.PayValue = cashPayVM.PayIn;
+                //TO DO: update the database
+            }
         }
 
         private void Exit(object param)

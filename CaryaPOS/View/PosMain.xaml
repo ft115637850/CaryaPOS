@@ -48,7 +48,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <UniformGrid Grid.Row="2" Rows="1" Columns="4">
-                <Button Content="Pay" Command="{Binding PayCommand}"/>
+                <Button Content="CashPay" Command="{Binding CashPayCommand}"/>
                 <Button Content="Hold"/>
                 <Button Content="Cancel"/>
                 <Button Content="Exit" Command="{Binding ExitCommand}"/>

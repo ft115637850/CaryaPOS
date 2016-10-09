@@ -94,10 +94,5 @@ namespace CaryaPOS.Model
             saleList.SaleValue = salelistItems.Sum(x => x.SaleValue);
             saleList.DiscValue = salelistItems.Sum(x => x.DiscValue);
         }
-
-        public void ProcessPayment()
-        {
-
-        }
     }
 }
