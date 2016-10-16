@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaryaPOS.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace CaryaPOS.View
     /// </summary>
     public partial class CashPay : Window
     {
-        public CashPay()
+        public CashPay(CashPayViewModel vm)
         {
+            this.DataContext = vm;
+            vm.CloseCashPayWindow += (_, __) => { this.Close(); };
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.txtInp.SelectAll();
         }
     }
 }

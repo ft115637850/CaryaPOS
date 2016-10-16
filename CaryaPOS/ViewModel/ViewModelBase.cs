@@ -15,27 +15,7 @@ namespace CaryaPOS.ViewModel
         {
             if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
-
-        bool? _CloseWindowFlag;
-        public bool? CloseWindowFlag
-        {
-            get { return _CloseWindowFlag; }
-            set
-            {
-                _CloseWindowFlag = value;
-                RaisePropertyChanged("CloseWindowFlag");
-            }
-        }
-
-        public virtual void CloseWindow(bool? result = true)
-        {
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
-            {
-                CloseWindowFlag = CloseWindowFlag == null 
-                    ? true 
-                    : !CloseWindowFlag;
-            }));
-        }
     }
 }

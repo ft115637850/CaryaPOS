@@ -9,24 +9,31 @@ namespace CaryaPOS.ViewModel
 {
     public class CashPayViewModel : ViewModelBase
     {
-        private decimal payIn;
+        private decimal newPayIn;
         private decimal change;
         private decimal inputAmount;
         private RelayCommand cancelCommand;
+        internal event EventHandler CloseCashPayWindow;
 
         public decimal Purchase { get; set; }
-        public decimal PayIn
+        public decimal OldPayIn
+        {
+            get;
+            set;  
+        }
+
+        public decimal NewPayIn
         {
             get
             {
-                return payIn;
+                return newPayIn;
             }
             set
             {
-                if (payIn != value)
+                if (newPayIn != value)
                 {
-                    payIn = value;
-                    RaisePropertyChanged("PayIn");
+                    newPayIn = value;
+                    RaisePropertyChanged("NewPayIn");
                 }
             }
         }
@@ -59,6 +66,8 @@ namespace CaryaPOS.ViewModel
                 {
                     inputAmount = value;
                     RaisePropertyChanged("InputAmount");
+                    this.NewPayIn = this.OldPayIn + this.inputAmount;
+                    this.Change = this.Purchase - this.newPayIn;
                 }
             }
         }
@@ -77,6 +86,7 @@ namespace CaryaPOS.ViewModel
 
         private void Cancel(object param)
         {
+            this.CloseCashPayWindow(this, null);
         }
     }
 }

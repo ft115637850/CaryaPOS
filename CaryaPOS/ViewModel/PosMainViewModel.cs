@@ -106,15 +106,16 @@ namespace CaryaPOS.ViewModel
             var cashPayVM = new CashPayViewModel()
             {
                 Purchase = this.SaleList.SaleValue - this.SaleList.DiscValue,
-                PayIn = payIn,
+                OldPayIn = payIn,
+                NewPayIn = payIn,
                 Change = this.SaleList.SaleValue - this.SaleList.DiscValue - this.SaleList.PayValue,
                 InputAmount = inputAmount
             };
 
-            var cashPayWin = new CashPay() { DataContext = cashPayVM };
+            var cashPayWin = new CashPay(cashPayVM);
             if (cashPayWin.ShowDialog() == true)
             {
-                this.SaleList.PayValue = cashPayVM.PayIn;
+                this.SaleList.PayValue = cashPayVM.OldPayIn;
                 //TO DO: update the database
             }
         }

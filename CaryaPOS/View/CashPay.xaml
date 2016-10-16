@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         FontSize="20"
-        Title="CashPay" Height="500" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
+        Title="CashPay" Height="500" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=txtInp}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -21,10 +21,10 @@
         <TextBlock Margin="0,0,10,0" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Change"/>
         <TextBlock Margin="0,0,10,0" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Amount"/>
         <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=Purchase, Mode=OneTime}"/>
-        <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=PayIn, Mode=TwoWay}"/>
+        <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=NewPayIn, Mode=TwoWay}"/>
         <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=Change, Mode=TwoWay}"/>
-        <TextBox  Margin="10,0,0,0" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=InputAmount}" Width="200"/>
-        <Button Grid.Column="0" Grid.Row="4" x:Name="confirm" Content="Confirm"/>
-        <Button Grid.Column="1" Grid.Row="4" x:Name="cancel" Content="Cancel" />
+        <TextBox x:Name="txtInp" TabIndex="0"   Margin="10,0,0,0" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=InputAmount, Mode=TwoWay}" Width="200"/>
+        <Button TabIndex="1" Grid.Column="0" Grid.Row="4" x:Name="confirm" Content="Confirm"/>
+        <Button TabIndex="2" Grid.Column="1" Grid.Row="4" x:Name="cancel" Content="Cancel" Command="{Binding CancelCommand}" />
     </Grid>
 </Window>
