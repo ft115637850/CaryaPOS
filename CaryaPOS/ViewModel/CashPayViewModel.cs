@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaryaPOS.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace CaryaPOS.ViewModel
         private decimal payIn;
         private decimal change;
         private decimal inputAmount;
+        private RelayCommand cancelCommand;
+
         public decimal Purchase { get; set; }
         public decimal PayIn
         {
@@ -58,6 +61,22 @@ namespace CaryaPOS.ViewModel
                     RaisePropertyChanged("InputAmount");
                 }
             }
+        }
+
+        public RelayCommand CancelCommand
+        {
+            get
+            {
+                if (cancelCommand == null)
+                {
+                    cancelCommand = new RelayCommand(Cancel);
+                }
+                return cancelCommand;
+            }
+        }
+
+        private void Cancel(object param)
+        {
         }
     }
 }
