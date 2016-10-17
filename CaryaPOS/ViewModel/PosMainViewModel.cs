@@ -109,7 +109,7 @@ namespace CaryaPOS.ViewModel
                 OldPayIn = payIn,
                 NewPayIn = payIn,
                 Change = this.SaleList.SaleValue - this.SaleList.DiscValue - this.SaleList.PayValue,
-                InputAmount = inputAmount
+                InputAmount = inputAmount.ToString()
             };
 
             var cashPayWin = new CashPay(cashPayVM);
