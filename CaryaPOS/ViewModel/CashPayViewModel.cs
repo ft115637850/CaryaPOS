@@ -1,4 +1,5 @@
 ﻿using CaryaPOS.Helper;
+using CaryaPOS.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,11 @@ namespace CaryaPOS.ViewModel
         private decimal inputValue;
         private string inputAmount;
         private RelayCommand cancelCommand;
+        private RelayCommand confirmCommand;
+        private PayProcessor payProcessor;
         private Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
-        internal event EventHandler CloseCashPayWindow;
+        internal event EventHandler CancelCloseCashPayWindow;
+        internal event EventHandler ConfirmCloseCashPayWindow;
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         public bool HasErrors
@@ -29,7 +33,7 @@ namespace CaryaPOS.ViewModel
         }
 
         public decimal Purchase { get; set; }
-        public decimal OldPayIn
+        public decimal OtherPayIn
         {
             get;
             set;  
@@ -83,7 +87,7 @@ namespace CaryaPOS.ViewModel
                     {
                         ClearErrors("InputAmount");
                         RaisePropertyChanged("InputAmount");
-                        this.NewPayIn = this.OldPayIn + this.inputValue;
+                        this.NewPayIn = this.OtherPayIn + this.inputValue;
                         this.Change = this.Purchase - this.newPayIn;
                     }
                     else
@@ -104,13 +108,38 @@ namespace CaryaPOS.ViewModel
                 {
                     cancelCommand = new RelayCommand(Cancel);
                 }
+
                 return cancelCommand;
             }
         }
 
+        public RelayCommand ConfirmCommand
+        {
+            get
+            {
+                if (confirmCommand==null)
+                {
+                    confirmCommand = new RelayCommand(Confirm, (obj) => { return !this.HasErrors; });
+                }
+
+                return confirmCommand;
+            }
+        }
+
+        internal CashPayViewModel(PayProcessor processor)
+        {
+            this.payProcessor = processor;
+        }
+
         private void Cancel(object param)
         {
-            this.CloseCashPayWindow(this, null);
+            this.CancelCloseCashPayWindow(this, null);
+        }
+
+        private void Confirm(object param)
+        {
+            this.payProcessor.UpdatePayRecord(this.inputValue);
+            this.ConfirmCloseCashPayWindow(this, null);
         }
 
         private void SetErrors(string propertyName, List<string> propertyErrors)

@@ -103,10 +103,10 @@ namespace CaryaPOS.ViewModel
             decimal inputAmount = payProcessor.GetPayItemValue();
 
             // Bring up the payment UI
-            var cashPayVM = new CashPayViewModel()
+            var cashPayVM = new CashPayViewModel(payProcessor)
             {
                 Purchase = this.SaleList.SaleValue - this.SaleList.DiscValue,
-                OldPayIn = payIn,
+                OtherPayIn = payIn - inputAmount,
                 NewPayIn = payIn,
                 Change = this.SaleList.SaleValue - this.SaleList.DiscValue - this.SaleList.PayValue,
                 InputAmount = inputAmount.ToString()
@@ -115,7 +115,7 @@ namespace CaryaPOS.ViewModel
             var cashPayWin = new CashPay(cashPayVM);
             if (cashPayWin.ShowDialog() == true)
             {
-                this.SaleList.PayValue = cashPayVM.OldPayIn;
+                this.SaleList.PayValue = cashPayVM.NewPayIn;
                 //TO DO: update the database
             }
         }

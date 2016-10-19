@@ -22,9 +22,13 @@ namespace CaryaPOS.Model
             return this.salesDBDao.GetPayItemValue(this.sheetID, CashPayProcessor.payTypeID);
         }
 
-        public override void UpdatePayRecord()
+        public override void UpdatePayRecord(decimal payValue)
         {
-            throw new NotImplementedException();
+            int record = this.salesDBDao.UpdatePayItemValue(this.sheetID, CashPayProcessor.payTypeID, payValue);
+            if (record < 1)
+            {
+                this.salesDBDao.AddPayItem(this.sheetID, 0, CashPayProcessor.payTypeID, CashPayProcessor.payName, "RMB", 1, payValue, payValue, null, 0, 0, 0, null);
+            }
         }
     }
 }

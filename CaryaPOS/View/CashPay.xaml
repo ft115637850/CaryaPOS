@@ -21,12 +21,12 @@
         <TextBlock Margin="0,0,10,0" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Change"/>
         <TextBlock Margin="0,0,10,0" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Amount"/>
         <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=Purchase, Mode=OneTime}"/>
-        <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=NewPayIn, Mode=TwoWay}"/>
-        <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=Change, Mode=TwoWay}"/>
+        <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=NewPayIn, Mode=OneWay}"/>
+        <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=Change, Mode=OneWay}"/>
         <TextBox x:Name="txtInp" TabIndex="0"   Margin="10,0,0,0" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                 Text="{Binding Path=InputAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200" 
-                 DataObject.Pasting="TextBoxPasting" PreviewTextInput="txtInp_PreviewTextInput"/>
-        <Button TabIndex="1" Grid.Column="0" Grid.Row="4" x:Name="confirm" Content="Confirm"/>
+                 Text="{Binding Path=InputAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" 
+                 DataObject.Pasting="TxtInp_TextBoxPasting" PreviewTextInput="TxtInp_PreviewTextInput"/>
+        <Button TabIndex="1" Grid.Column="0" Grid.Row="4" x:Name="confirm" Content="Confirm" Command="{Binding ConfirmCommand}"/>
         <Button TabIndex="2" Grid.Column="1" Grid.Row="4" x:Name="cancel" Content="Cancel" Command="{Binding CancelCommand}" />
     </Grid>
 </Window>

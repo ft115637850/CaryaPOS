@@ -138,7 +138,7 @@ namespace CaryaPOS.Helper
             CARDNEWVALUE DECIMAL(10,2),
             CARDID       INT,
             CARDTYPE     VARCHAR(25),
-            PRIMARY KEY (SHEETID,SEQID)     
+            PRIMARY KEY (SHEETID,PAYTYPEID)     
             );
 
             CREATE TABLE SALELISTPAYHIST
@@ -157,7 +157,7 @@ namespace CaryaPOS.Helper
             CARDNEWVALUE DECIMAL(10,2),
             CARDID       INT,
             CARDTYPE     VARCHAR(25),
-            PRIMARY KEY (SHEETID,SEQID)     
+            PRIMARY KEY (SHEETID,PAYTYPEID)     
             );
 
             ";

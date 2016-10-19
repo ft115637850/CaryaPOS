@@ -24,7 +24,8 @@ namespace CaryaPOS.View
         public CashPay(CashPayViewModel vm)
         {
             this.DataContext = vm;
-            vm.CloseCashPayWindow += (_, __) => { this.Close(); };
+            vm.CancelCloseCashPayWindow += (_, __) => { this.DialogResult = false; this.Close(); };
+            vm.ConfirmCloseCashPayWindow += (_, __) => { this.DialogResult = true; this.Close(); };
             InitializeComponent();
         }
 
@@ -33,13 +34,13 @@ namespace CaryaPOS.View
             this.txtInp.SelectAll();
         }
 
-        private void txtInp_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void TxtInp_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsTextAllowed(e.Text);
         }
 
         // Use the DataObject.Pasting Handler 
-        private void TextBoxPasting(object sender, DataObjectPastingEventArgs e)
+        private void TxtInp_TextBoxPasting(object sender, DataObjectPastingEventArgs e)
         {
             if (e.DataObject.GetDataPresent(typeof(String)))
             {

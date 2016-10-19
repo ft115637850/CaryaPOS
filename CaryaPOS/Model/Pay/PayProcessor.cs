@@ -25,6 +25,6 @@ namespace CaryaPOS.Model
         }
 
         public abstract decimal GetPayItemValue();
-        public abstract void UpdatePayRecord();
+        public abstract void UpdatePayRecord(decimal payValue);
     }
 }

@@ -116,8 +116,8 @@ namespace CaryaPOS.Dao
 
             parms[0].Value = sheetID;
             //TO DO: Multi Currency support
-            var data = this.GetSingleValue<decimal>("select sum(PAYVALUE) from SALELISTPAY where sheetID=@sheetID", parms);
-            return data == null ? 0 : (decimal)data;
+            var data = this.GetSingleValue("select sum(PAYVALUE) from SALELISTPAY where sheetID=@sheetID", parms);
+            return data == null ? 0 : Convert.ToDecimal(data);
         }
 
         public decimal GetPayItemValue(string sheetID, int payTypeID)
@@ -129,9 +129,64 @@ namespace CaryaPOS.Dao
             };
 
             parms[0].Value = sheetID;
+            parms[1].Value = payTypeID;
             //TO DO: Multi Currency support
-            var data = this.GetSingleValue<decimal>("select sum(PAYVALUE) from SALELISTPAY where sheetID=@sheetID and PAYTYPEID=@payTypeID", parms);
-            return data == null ? 0 : (decimal)data;
+            var data = this.GetSingleValue("select sum(PAYVALUE) from SALELISTPAY where sheetID=@sheetID and PAYTYPEID=@payTypeID", parms);
+            return data == null ? 0 : Convert.ToDecimal(data);
+        }
+
+        public int UpdatePayItemValue(string sheetID, int payTypeID, decimal payValue)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String),
+                new SQLiteParameter("@payTypeID", DbType.Int32),
+                new SQLiteParameter("@payValue", DbType.Decimal),
+            };
+
+            parms[0].Value = sheetID;
+            parms[1].Value = payTypeID;
+            parms[2].Value = payValue;
+            //TO DO: Multi-Currency support
+            return this.ExecuteNonQuery("update SALELISTPAY set PAYVALUE=@payValue,REALVALUE=@payValue where sheetID=@sheetID and PAYTYPEID=@payTypeID", parms);
+        }
+
+        public void AddPayItem(string sheetID, int seqID, int payTypeID, string payTypeName, string currencyCode, decimal rate, decimal payValue, decimal realValue, string cardNO, decimal cardOldValue, decimal cardNewValue, int cardID, string cardType)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String),
+                new SQLiteParameter("@seqID", DbType.Int32),
+                new SQLiteParameter("@payTime", DbType.Time),
+                new SQLiteParameter("@payTypeID", DbType.Int32),
+                new SQLiteParameter("@payTypeName", DbType.String),
+                new SQLiteParameter("@currencyCode", DbType.String),
+                new SQLiteParameter("@rate", DbType.Decimal),
+                new SQLiteParameter("@payValue", DbType.Decimal),
+                new SQLiteParameter("@realValue", DbType.Decimal),
+                new SQLiteParameter("@cardNO", DbType.String),
+                new SQLiteParameter("@cardOldValue", DbType.Decimal),
+                new SQLiteParameter("@cardNewValue", DbType.Decimal),
+                new SQLiteParameter("@cardID", DbType.Int32),
+                new SQLiteParameter("@cardType", DbType.String)
+            };
+
+            parms[0].Value = sheetID;
+            parms[1].Value = seqID;
+            parms[2].Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            parms[3].Value = payTypeID;
+            parms[4].Value = payTypeName;
+            parms[5].Value = currencyCode;
+            parms[6].Value = rate;
+            parms[7].Value = payValue;
+            parms[8].Value = realValue;     //TO DO: Update to normalprice in promotion
+            parms[9].Value = cardNO;
+            parms[10].Value = cardOldValue;
+            parms[11].Value = cardNewValue;
+            parms[12].Value = cardID;
+            parms[13].Value = cardType;
+            this.ExecuteNonQuery("insert into SALELISTPAY (SHEETID,SEQID,PAYTIME,PAYTYPEID,PAYTYPENAME,CURRENCYCODE,RATE,PAYVALUE,REALVALUE,CARDNO,CARDOLDVALUE,CARDNEWVALUE,CARDID,CARDTYPE) values ("
+               + "@sheetID,@seqID,@payTime,@payTypeID,@payTypeName,@currencyCode,@rate,@payValue,@realValue,@cardNO,@cardOldValue,@cardNewValue,@cardID,@cardType)", parms);
         }
     }
 }
