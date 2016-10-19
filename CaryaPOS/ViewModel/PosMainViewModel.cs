@@ -108,7 +108,7 @@ namespace CaryaPOS.ViewModel
                 Purchase = this.SaleList.SaleValue - this.SaleList.DiscValue,
                 OtherPayIn = payIn - inputAmount,
                 NewPayIn = payIn,
-                Change = this.SaleList.SaleValue - this.SaleList.DiscValue - this.SaleList.PayValue,
+                Change = this.SaleList.PayValue - (this.SaleList.SaleValue - this.SaleList.DiscValue),
                 InputAmount = inputAmount.ToString()
             };
 
@@ -116,7 +116,14 @@ namespace CaryaPOS.ViewModel
             if (cashPayWin.ShowDialog() == true)
             {
                 this.SaleList.PayValue = cashPayVM.NewPayIn;
-                //TO DO: update the database
+                this.salesData.UpdateSalesData(this.SaleList, this.SaleListItems);
+                if (cashPayVM.Change >= 0)
+                {
+                    salesData.MoveSaleListToHistory(this.SaleList.SheetID.ToString());
+                    var saleList = salesData.GetCurrentSaleList();
+                    this.SaleList.Copy(saleList);
+                    this.SaleListItems.Clear(); 
+                }
             }
         }
 

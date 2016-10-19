@@ -81,5 +81,16 @@ namespace CaryaPOS.ViewModel
 
         public string CashierID { get; set; }
         public string ShopID { get; set; }
+
+        public void Copy(SaleListViewModel vm)
+        {
+            this.SheetID = vm.SheetID;
+            this.SaleValue = vm.SaleValue;
+            this.DiscValue = vm.DiscValue;
+            this.PayValue = vm.PayValue;
+            this.Change = vm.Change;
+            this.CashierID = vm.CashierID;
+            this.ShopID = vm.ShopID;
+        }
     }
 }

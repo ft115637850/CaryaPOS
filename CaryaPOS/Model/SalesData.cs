@@ -82,8 +82,6 @@ namespace CaryaPOS.Model
         public void UpdateSalesData(SaleListViewModel saleList, ObservableCollection<SaleListItemViewModel> salelistItems)
         {
             this.CalcTotalValue(saleList, salelistItems);
-            //TO DO: Process Payment
-            saleList.PayValue = 0;
             saleList.Change = saleList.PayValue - saleList.SaleValue + saleList.DiscValue;
             this.salesDBDao.UpdateSaleList(saleList.SheetID.ToString(), saleList.PayValue, saleList.SaleValue, saleList.DiscValue);
         }
@@ -93,6 +91,11 @@ namespace CaryaPOS.Model
             //TO DO: Process sales promotion
             saleList.SaleValue = salelistItems.Sum(x => x.SaleValue);
             saleList.DiscValue = salelistItems.Sum(x => x.DiscValue);
+        }
+
+        public void MoveSaleListToHistory(string sheetID)
+        {
+            this.salesDBDao.MoveSaleListToHistory(sheetID);
         }
     }
 }

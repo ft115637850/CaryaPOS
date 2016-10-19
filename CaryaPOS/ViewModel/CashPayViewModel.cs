@@ -88,7 +88,7 @@ namespace CaryaPOS.ViewModel
                         ClearErrors("InputAmount");
                         RaisePropertyChanged("InputAmount");
                         this.NewPayIn = this.OtherPayIn + this.inputValue;
-                        this.Change = this.Purchase - this.newPayIn;
+                        this.Change = this.newPayIn - this.Purchase;
                     }
                     else
                     {

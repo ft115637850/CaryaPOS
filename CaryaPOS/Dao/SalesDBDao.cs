@@ -188,5 +188,21 @@ namespace CaryaPOS.Dao
             this.ExecuteNonQuery("insert into SALELISTPAY (SHEETID,SEQID,PAYTIME,PAYTYPEID,PAYTYPENAME,CURRENCYCODE,RATE,PAYVALUE,REALVALUE,CARDNO,CARDOLDVALUE,CARDNEWVALUE,CARDID,CARDTYPE) values ("
                + "@sheetID,@seqID,@payTime,@payTypeID,@payTypeName,@currencyCode,@rate,@payValue,@realValue,@cardNO,@cardOldValue,@cardNewValue,@cardID,@cardType)", parms);
         }
+
+        public void MoveSaleListToHistory(string sheetID)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String)
+            };
+
+            parms[0].Value = sheetID;
+            this.ExecuteNonQuery("insert into SALELISTPAYHIST select * from SALELISTPAY where sheetid=@sheetID", parms);
+            this.ExecuteNonQuery("insert into SALELISTHIST select * from SALELIST where sheetid=@sheetID", parms);
+            this.ExecuteNonQuery("insert into SALELISTITEMHIST select * from SALELISTITEM where sheetid=@sheetID", parms);
+            this.ExecuteNonQuery("delete from SALELISTPAY where sheetid=@sheetID", parms);
+            this.ExecuteNonQuery("delete from SALELIST where sheetid=@sheetID", parms);
+            this.ExecuteNonQuery("delete from SALELISTITEM where sheetid=@sheetID", parms);
+        }
     }
 }
