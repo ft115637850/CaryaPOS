@@ -97,5 +97,10 @@ namespace CaryaPOS.Model
         {
             this.salesDBDao.MoveSaleListToHistory(sheetID);
         }
+
+        public void DeleteSheet(string sheetID)
+        {
+            this.salesDBDao.DeleteSaleList(sheetID);
+        }
     }
 }

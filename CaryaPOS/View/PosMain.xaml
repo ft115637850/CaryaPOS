@@ -47,10 +47,11 @@
                     <DataGridTextColumn Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <UniformGrid Grid.Row="2" Rows="1" Columns="4">
+            <UniformGrid Grid.Row="2" Rows="2" Columns="4">
                 <Button Content="CashPay" Command="{Binding CashPayCommand}"/>
+                <Button Content="Delete"/>
                 <Button Content="Hold"/>
-                <Button Content="Cancel"/>
+                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
                 <Button Content="Exit" Command="{Binding ExitCommand}"/>
             </UniformGrid>
         </Grid>

@@ -200,6 +200,17 @@ namespace CaryaPOS.Dao
             this.ExecuteNonQuery("insert into SALELISTPAYHIST select * from SALELISTPAY where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("insert into SALELISTHIST select * from SALELIST where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("insert into SALELISTITEMHIST select * from SALELISTITEM where sheetid=@sheetID", parms);
+            this.DeleteSaleList(sheetID);
+        }
+
+        public void DeleteSaleList(string sheetID)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String)
+            };
+
+            parms[0].Value = sheetID;
             this.ExecuteNonQuery("delete from SALELISTPAY where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("delete from SALELIST where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("delete from SALELISTITEM where sheetid=@sheetID", parms);

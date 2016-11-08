@@ -18,6 +18,7 @@ namespace CaryaPOS.ViewModel
         private SaleListItemViewModel currentItem;
         private RelayCommand addGoodsCommand;
         private RelayCommand cashPayCommand;
+        private RelayCommand cancelCommand;
         private RelayCommand exitCommand;
         private SalesData salesData;
 
@@ -63,6 +64,18 @@ namespace CaryaPOS.ViewModel
                 }
                 return cashPayCommand;
             }
+        }
+
+        public RelayCommand CancelCommand
+        {
+            get
+            {
+                if (cancelCommand==null)
+                {
+                    cancelCommand = new RelayCommand(CancelSheet);
+                }
+                return cancelCommand;
+            }            
         }
 
         public RelayCommand ExitCommand
@@ -124,6 +137,23 @@ namespace CaryaPOS.ViewModel
                     this.SaleList.Copy(saleList);
                     this.SaleListItems.Clear(); 
                 }
+            }
+        }
+
+        private void CancelSheet(object param)
+        {
+            //TO DO: Add custom dialog window
+            var isConfirmed = MessageBox.Show(Resource.CancelConfirmation, Resource.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (isConfirmed == MessageBoxResult.Yes)
+            {
+                salesData.DeleteSheet(this.SaleList.SheetID.ToString());
+                var saleList = salesData.GetCurrentSaleList();
+                this.SaleList.Copy(saleList);
+                this.SaleListItems.Clear();
+            }
+            else
+            {
+                return;
             }
         }
 
