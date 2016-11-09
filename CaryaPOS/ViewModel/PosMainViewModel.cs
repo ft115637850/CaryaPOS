@@ -122,7 +122,7 @@ namespace CaryaPOS.ViewModel
         private void DeleteGoodsItem(object param)
         {
             IList collection = param as IList;
-            if (collection == null)
+            if (collection == null || collection.Count == 0)
             {
                 return;
             }

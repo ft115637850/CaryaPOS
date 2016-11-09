@@ -42,9 +42,9 @@
                       AutoGenerateColumns="False" SelectedItem="{Binding CurrentItem, Mode=TwoWay}" SelectionChanged="Detail_SelectionChanged"
                       ManipulationBoundaryFeedback="Detail_ManipulationBoundaryFeedback">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding GoodsName, Mode=OneWay}" Header="GoodsName"/>
-                    <DataGridTextColumn Binding="{Binding Quantity, Mode=OneWay}" Header="Quantity"/>
-                    <DataGridTextColumn Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
+                    <DataGridTextColumn Width="5*" Binding="{Binding GoodsName, Mode=OneWay}" Header="GoodsName"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Quantity, Mode=OneWay}" Header="Quantity"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
                 </DataGrid.Columns>
             </DataGrid>
             <UniformGrid Grid.Row="2" Rows="2" Columns="4">

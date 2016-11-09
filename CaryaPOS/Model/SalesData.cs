@@ -105,13 +105,14 @@ namespace CaryaPOS.Model
 
         public void DeleteSalelistItems(string sheetID, List<SaleListItemViewModel> deleteItems, SaleListViewModel saleList, ObservableCollection<SaleListItemViewModel> salelistItems)
         {
-            var seqs = (from item in deleteItems
-                    select item.SeqID).ToList();
-            this.salesDBDao.DeleteSalelistItems(sheetID, seqs);
+            List<int> seqs = new List<int>();
             foreach (var deleteItem in deleteItems)
             {
+                seqs.Add(deleteItem.SeqID);
                 salelistItems.Remove(deleteItem);
             }
+
+            this.salesDBDao.DeleteSalelistItems(sheetID, seqs);
             this.UpdateSalesData(saleList, salelistItems);
         }
     }
