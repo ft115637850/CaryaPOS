@@ -36,6 +36,11 @@ namespace CaryaPOS.View
         {
             if (this.Detail.Items.Count > 0)
             {
+                if (this.Detail.SelectedItem == null)
+                {
+                    //The old last item was just deleted, then select the new last item.
+                    this.Detail.SelectedItem = this.Detail.Items[this.Detail.Items.Count - 1];
+                }
                 this.Detail.ScrollIntoView(this.Detail.SelectedItem);
             }
         }

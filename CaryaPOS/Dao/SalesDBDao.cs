@@ -215,5 +215,27 @@ namespace CaryaPOS.Dao
             this.ExecuteNonQuery("delete from SALELIST where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("delete from SALELISTITEM where sheetid=@sheetID", parms);
         }
+
+        public void DeleteSalelistItems(string sheetID, List<int> seqs)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[seqs.Count + 1];
+            parms[0] = new SQLiteParameter("@sheetID", DbType.String);
+            parms[0].Value = sheetID;
+
+            StringBuilder seqids = new StringBuilder();
+            for (int idx = 0; idx < seqs.Count; idx++)
+            {
+                string seqParam = "@seqid" + idx;
+                parms[idx + 1] = new SQLiteParameter(seqParam, DbType.Int32);
+                parms[idx + 1].Value = seqs[idx];
+
+                if (seqids.Length != 0)
+                {
+                    seqids.Append(",");
+                }
+                seqids.Append(seqParam);
+            }
+            this.ExecuteNonQuery("delete from SALELISTITEM where sheetid=@sheetID and SEQID in (" + seqids + ")", parms);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using CaryaPOS.Model;
 using CaryaPOS.View;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace CaryaPOS.ViewModel
         private RelayCommand addGoodsCommand;
         private RelayCommand cashPayCommand;
         private RelayCommand cancelCommand;
+        private RelayCommand deleteCommand;
         private RelayCommand exitCommand;
         private SalesData salesData;
 
@@ -78,6 +80,18 @@ namespace CaryaPOS.ViewModel
             }            
         }
 
+        public RelayCommand DeleteCommand
+        {
+            get
+            {
+                if (deleteCommand==null)
+                {
+                    deleteCommand = new RelayCommand(DeleteGoodsItem);
+                }
+                return deleteCommand;
+            }
+        }
+
         public RelayCommand ExitCommand
         {
             get
@@ -103,6 +117,17 @@ namespace CaryaPOS.ViewModel
             var goodsID = (int)goods;
             var newItem = this.salesData.AddGoods(goodsID, this.SaleList, this.SaleListItems);
             this.CurrentItem = newItem;
+        }
+
+        private void DeleteGoodsItem(object param)
+        {
+            IList collection = param as IList;
+            if (collection == null)
+            {
+                return;
+            }
+            var deleteItems = collection.Cast<SaleListItemViewModel>().ToList<SaleListItemViewModel>();
+            this.salesData.DeleteSalelistItems(this.SaleList.SheetID.ToString(), deleteItems, this.SaleList, this.SaleListItems);
         }
 
         private void CashPay(object param)
