@@ -27,6 +27,7 @@ namespace CaryaPOS.ViewModel
 
         public SaleListViewModel SaleList { get; set; }
         public ObservableCollection<SaleListItemViewModel> SaleListItems { get; set; }
+        public ObservableCollection<SaleListItemViewModel> OnHoldSaleListItems { get; set; }
         public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
 
         public SaleListItemViewModel CurrentItem
@@ -117,12 +118,13 @@ namespace CaryaPOS.ViewModel
             }
         }
 
-        public PosMainViewModel(List<CategoryViewModel> goodsCategories, SaleListViewModel saleList, List<SaleListItemViewModel> saleListItems)
+        public PosMainViewModel(List<CategoryViewModel> goodsCategories, SaleListViewModel saleList, List<SaleListItemViewModel> saleListItems, List<SaleListItemViewModel> onHoldSaleListItems)
         {
             this.GoodsCategoriesInfo = goodsCategories;
             this.SaleList = saleList;
             this.SaleListItems = new ObservableCollection<SaleListItemViewModel>(saleListItems);
             this.salesData = new SalesData();
+            this.OnHoldSaleListItems = new ObservableCollection<SaleListItemViewModel>(onHoldSaleListItems);
         }
 
         private void AddGoods(object goods)
@@ -197,8 +199,14 @@ namespace CaryaPOS.ViewModel
 
         private void OnHold(object obj)
         {
-            //If current sheet is empty, get the holded sheets list.
-            //If current sheet is not empty, hold current sheet.
+            if (this.SaleListItems.Count > 0)
+            {
+                //If current sheet is not empty, hold current sheet.
+            }
+            else if (this.OnHoldSaleListItems.Count > 0)
+            {
+                //If current sheet is empty, get the holded sheets list.
+            }
         }
 
         private void Exit(object param)
