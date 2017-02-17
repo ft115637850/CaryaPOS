@@ -197,7 +197,8 @@ namespace CaryaPOS.ViewModel
 
         private void OnHold(object obj)
         {
-            throw new NotImplementedException();
+            //If current sheet is empty, get the holded sheets list.
+            //If current sheet is not empty, hold current sheet.
         }
 
         private void Exit(object param)
