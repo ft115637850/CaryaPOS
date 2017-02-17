@@ -50,7 +50,7 @@
             <UniformGrid Grid.Row="2" Rows="2" Columns="4">
                 <Button Content="CashPay" Command="{Binding CashPayCommand}"/>
                 <Button Content="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=Detail, Path=SelectedItems, Mode=OneWay}"/>
-                <Button Content="Hold"/>
+                <Button Content="Hold" Command="{Binding HoldCommand}"/>
                 <Button Content="Cancel" Command="{Binding CancelCommand}"/>
                 <Button Content="Exit" Command="{Binding ExitCommand}"/>
             </UniformGrid>

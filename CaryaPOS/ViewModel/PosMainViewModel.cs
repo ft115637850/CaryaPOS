@@ -22,6 +22,7 @@ namespace CaryaPOS.ViewModel
         private RelayCommand cancelCommand;
         private RelayCommand deleteCommand;
         private RelayCommand exitCommand;
+        private RelayCommand holdCommand;
         private SalesData salesData;
 
         public SaleListViewModel SaleList { get; set; }
@@ -92,6 +93,18 @@ namespace CaryaPOS.ViewModel
             }
         }
 
+        public RelayCommand HoldCommand
+        {
+            get
+            {
+                if (holdCommand == null)
+                {
+                    holdCommand = new RelayCommand(OnHold);
+                }
+                return holdCommand;
+            }
+        }
+        
         public RelayCommand ExitCommand
         {
             get
@@ -180,6 +193,11 @@ namespace CaryaPOS.ViewModel
             {
                 return;
             }
+        }
+
+        private void OnHold(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         private void Exit(object param)
