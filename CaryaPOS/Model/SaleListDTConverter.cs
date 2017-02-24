@@ -10,39 +10,26 @@ namespace CaryaPOS.Model
 {
     public class SaleListDTConverter
     {
-        public static SaleListViewModel GetModel(DataTable dtData)
-        {
-            var model = new SaleListViewModel();
-            Guid sheetID;
-            if (dtData.Rows.Count > 0)
+        public static List<SaleListViewModel> GetModel(DataTable dtData)
+        {            
+            var items = new List<SaleListViewModel>();
+            foreach (DataRow row in dtData.Rows)
             {
-                //Ongoing sheet
-                var firstSale = dtData.Rows[0];
-
-                Guid.TryParse(Convert.ToString(firstSale["SheetID"]), out sheetID);
-                model.SheetID = sheetID;
-                model.CashierID = Convert.ToString(firstSale["CashierID"]);
-                model.PayValue = Convert.ToDecimal(firstSale["PayValue"]);
-                model.SaleValue = Convert.ToDecimal(firstSale["SaleValue"]);
-                model.DiscValue = Convert.ToDecimal(firstSale["DiscValue"]);
-                model.Change = model.PayValue - (model.SaleValue - model.DiscValue);
-            }
-            else
-            {
-                //New sheet
-                sheetID = Guid.NewGuid();
-                model.SheetID = sheetID;
-                
-                model.Change = 0;
-                model.PayValue = 0;
-                model.SaleValue = 0;
-                model.DiscValue = 0;
-                //TO DO: update to login user
-                model.CashierID = "Tester";
-                model.ShopID = "A001";
+                Guid sheetid;
+                Guid.TryParse(Convert.ToString(row["SheetID"]), out sheetid);
+                var item = new SaleListViewModel
+                {
+                    SheetID = sheetid,
+                    CashierID = Convert.ToString(row["CashierID"]),
+                    PayValue = Convert.ToDecimal(row["PayValue"]),
+                    SaleValue = Convert.ToDecimal(row["SaleValue"]),
+                    DiscValue = Convert.ToDecimal(row["DiscValue"]),
+                    Change = Convert.ToDecimal(row["PayValue"]) - (Convert.ToDecimal(row["SaleValue"]) - Convert.ToDecimal(row["DiscValue"]))
+                };
+                items.Add(item);
             }
 
-            return model;
+            return items;
         }
     }
 }

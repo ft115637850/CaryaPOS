@@ -27,7 +27,7 @@ namespace CaryaPOS.ViewModel
 
         public SaleListViewModel SaleList { get; set; }
         public ObservableCollection<SaleListItemViewModel> SaleListItems { get; set; }
-        public ObservableCollection<SaleListItemViewModel> OnHoldSaleListItems { get; set; }
+        public ObservableCollection<SaleListViewModel> OnHoldSaleLists { get; set; }
         public List<CategoryViewModel> GoodsCategoriesInfo { get; set; }
 
         public SaleListItemViewModel CurrentItem
@@ -118,13 +118,13 @@ namespace CaryaPOS.ViewModel
             }
         }
 
-        public PosMainViewModel(List<CategoryViewModel> goodsCategories, SaleListViewModel saleList, List<SaleListItemViewModel> saleListItems, List<SaleListItemViewModel> onHoldSaleListItems)
+        public PosMainViewModel(List<CategoryViewModel> goodsCategories, SaleListViewModel saleList, List<SaleListItemViewModel> saleListItems, List<SaleListViewModel> onHoldSaleLists)
         {
             this.GoodsCategoriesInfo = goodsCategories;
             this.SaleList = saleList;
             this.SaleListItems = new ObservableCollection<SaleListItemViewModel>(saleListItems);
             this.salesData = new SalesData();
-            this.OnHoldSaleListItems = new ObservableCollection<SaleListItemViewModel>(onHoldSaleListItems);
+            this.OnHoldSaleLists = new ObservableCollection<SaleListViewModel>(onHoldSaleLists);
         }
 
         private void AddGoods(object goods)
@@ -202,10 +202,29 @@ namespace CaryaPOS.ViewModel
             if (this.SaleListItems.Count > 0)
             {
                 //If current sheet is not empty, hold current sheet.
+                salesData.HoldSaleList(this.SaleList.SheetID.ToString());
+                this.OnHoldSaleLists.Add(this.SaleList);
+                var saleList = salesData.GetCurrentSaleList();
+                this.SaleList.Copy(saleList);
+                this.SaleListItems.Clear(); 
             }
-            else if (this.OnHoldSaleListItems.Count > 0)
+            else if (this.OnHoldSaleLists.Count == 1)
             {
-                //If current sheet is empty, get the holded sheets list.
+                //If current sheet is empty, get the on hold sheet.
+                salesData.DeleteSheet(this.SaleList.SheetID.ToString());
+                salesData.UnHoldSaleList(this.OnHoldSaleLists.First().SheetID.ToString());
+                this.OnHoldSaleLists.RemoveAt(0);
+                var saleList = salesData.GetCurrentSaleList();
+                this.SaleList.Copy(saleList);
+                var saleListItems = salesData.GetSaleListItem(saleList.SheetID);
+                foreach (var item in saleListItems)
+                {
+                    this.SaleListItems.Add(item);
+                }
+            }
+            else if (this.OnHoldSaleLists.Count > 1)
+            {
+                //If there are more than 1 on hold sheet, get the on hold sheets list for selection.
             }
         }
 

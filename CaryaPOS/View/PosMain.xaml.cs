@@ -28,8 +28,9 @@ namespace CaryaPOS.View
             var salesData = new SalesData();
             var saleList = salesData.GetCurrentSaleList();
             var saleListItems = salesData.GetSaleListItem(saleList.SheetID);
+            var saleListOnHold = salesData.GetOnHoldSaleList();
             //TO DO: get on hold sheet list from salesData
-            var vm = new PosMainViewModel(category.GetGoodsCategoryInfo(), saleList, saleListItems, null);
+            var vm = new PosMainViewModel(category.GetGoodsCategoryInfo(), saleList, saleListItems, saleListOnHold);
             DataContext = vm;
         }
 

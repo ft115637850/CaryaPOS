@@ -16,9 +16,36 @@ namespace CaryaPOS.Dao
         {
         }
 
-        public DataTable GetOngoingSaleList()
+        public DataTable GetOnGoingSaleList()
         {
             return this.GetData("select * from SALELIST where STATUSFLAG=0", null);
+        }
+
+        public DataTable GetOnHoldSaleList()
+        {
+            return this.GetData("select * from SALELIST where STATUSFLAG=1", null);
+        }
+
+        public void HoldSaleList(string sheetID)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String)
+            };
+
+            parms[0].Value = sheetID;
+            this.ExecuteNonQuery("update SALELIST set STATUSFLAG=1 where sheetid=@sheetID", parms);
+        }
+
+        public void UnHoldSaleList(string sheetID)
+        {
+            SQLiteParameter[] parms = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@sheetID", DbType.String)
+            };
+
+            parms[0].Value = sheetID;
+            this.ExecuteNonQuery("update SALELIST set STATUSFLAG=0 where sheetid=@sheetID", parms);
         }
 
         public DataTable GetSaleListItems(string sheetID)
@@ -200,10 +227,14 @@ namespace CaryaPOS.Dao
             this.ExecuteNonQuery("insert into SALELISTPAYHIST select * from SALELISTPAY where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("insert into SALELISTHIST select * from SALELIST where sheetid=@sheetID", parms);
             this.ExecuteNonQuery("insert into SALELISTITEMHIST select * from SALELISTITEM where sheetid=@sheetID", parms);
-            this.DeleteSaleList(sheetID);
+            this.DeleteSaleSheetData(sheetID);
         }
 
-        public void DeleteSaleList(string sheetID)
+        /// <summary>
+        /// Delete all data related to the sheet
+        /// </summary>
+        /// <param name="sheetID"></param>
+        public void DeleteSaleSheetData(string sheetID)
         {
             SQLiteParameter[] parms = new SQLiteParameter[]
             {

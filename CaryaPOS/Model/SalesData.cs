@@ -21,10 +21,21 @@ namespace CaryaPOS.Model
 
         public SaleListViewModel GetCurrentSaleList()
         {
-            var sales = salesDBDao.GetOngoingSaleList();
-            var currentSaleList = SaleListDTConverter.GetModel(sales);
+            SaleListViewModel currentSaleList = null;
+            var sales = salesDBDao.GetOnGoingSaleList();
             if (sales.Rows.Count == 0)
             {
+                currentSaleList = new SaleListViewModel()
+                {
+                    SheetID = Guid.NewGuid(),
+                    Change = 0,
+                    PayValue = 0,
+                    SaleValue = 0,
+                    DiscValue = 0,
+                    //TO DO: update to login user
+                    CashierID = "Tester",
+                    ShopID = "A001"
+                };
                 salesDBDao.NewSaleList(
                     currentSaleList.SheetID.ToString(),
                     currentSaleList.CashierID,
@@ -33,8 +44,27 @@ namespace CaryaPOS.Model
                     currentSaleList.SaleValue,
                     currentSaleList.DiscValue);
             }
-
+            else
+            {
+                currentSaleList = SaleListDTConverter.GetModel(sales).First();
+            }
             return currentSaleList;
+        }
+
+        public List<SaleListViewModel> GetOnHoldSaleList()
+        {
+            var salesOnHold = salesDBDao.GetOnHoldSaleList();
+            return SaleListDTConverter.GetModel(salesOnHold);
+        }
+
+        public void HoldSaleList(string sheetID)
+        {
+            salesDBDao.HoldSaleList(sheetID);
+        }
+
+        public void UnHoldSaleList(string sheetID)
+        {
+            salesDBDao.UnHoldSaleList(sheetID);
         }
 
         public List<SaleListItemViewModel> GetSaleListItem(Guid sheetID)
@@ -100,7 +130,7 @@ namespace CaryaPOS.Model
 
         public void DeleteSheet(string sheetID)
         {
-            this.salesDBDao.DeleteSaleList(sheetID);
+            this.salesDBDao.DeleteSaleSheetData(sheetID);
         }
 
         public void DeleteSalelistItems(string sheetID, List<SaleListItemViewModel> deleteItems, SaleListViewModel saleList, ObservableCollection<SaleListItemViewModel> salelistItems)
