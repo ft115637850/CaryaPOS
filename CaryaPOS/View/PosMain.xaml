@@ -47,12 +47,13 @@
                     <DataGridTextColumn Width="*" Binding="{Binding SaleValue, StringFormat={}{0:C}, Mode=OneWay}" Header="SaleValue"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <UniformGrid Grid.Row="2" Rows="2" Columns="4">
-                <Button Content="CashPay" Command="{Binding CashPayCommand}"/>
-                <Button Content="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=Detail, Path=SelectedItems, Mode=OneWay}"/>
-                <Button Content="Hold" Command="{Binding HoldCommand}"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
-                <Button Content="Exit" Command="{Binding ExitCommand}"/>
+            <UniformGrid Grid.Row="2" Rows="2" Columns="3">
+                <Button Height="{Binding ElementName=AutoStrech, Path=Height}" Content="CashPay" Command="{Binding CashPayCommand}"/>
+                <Button Height="{Binding ElementName=AutoStrech, Path=Height}" Content="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=Detail, Path=SelectedItems, Mode=OneWay}"/>
+                <Button Height="{Binding ElementName=AutoStrech, Path=Height}" Content="Hold" Command="{Binding HoldCommand}"/>
+                <Button Height="{Binding ElementName=AutoStrech, Path=Height}" Content="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Height="{Binding ElementName=AutoStrech, Path=Height}" Content="Exit" Command="{Binding ExitCommand}"/>
+                <Button x:Name="AutoStrech" Style="{x:Null}" Content="AutoStrech" Visibility="Collapsed"/>
             </UniformGrid>
         </Grid>
 		<GridSplitter Grid.Row="0" Grid.Column="1" 
