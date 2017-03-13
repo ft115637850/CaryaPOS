@@ -183,7 +183,7 @@ namespace CaryaPOS.ViewModel
         private void CancelSheet(object param)
         {
             //TO DO: Add custom dialog window
-            var isConfirmed = MessageBox.Show(Resource.CancelConfirmation, Resource.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            var isConfirmed = MessageBox.Show(Properties.Resources.CancelConfirmation, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             if (isConfirmed == MessageBoxResult.Yes)
             {
                 salesData.DeleteSheet(this.SaleList.SheetID.ToString());

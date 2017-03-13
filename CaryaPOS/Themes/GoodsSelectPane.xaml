@@ -1,131 +1,131 @@
 ﻿<ResourceDictionary
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+x:Uid="ResourceDictionary_1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 xmlns:local="clr-namespace:CaryaPOS.View">
-    <Style TargetType="{x:Type local:GoodsSelectPane}">
-        <Setter Property="Template">
+    <Style x:Uid="Style_1" TargetType="{x:Type local:GoodsSelectPane}">
+        <Setter x:Uid="Setter_1" Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:GoodsSelectPane}">
-                    <Grid >
+                <ControlTemplate x:Uid="ControlTemplate_1" TargetType="{x:Type local:GoodsSelectPane}">
+                    <Grid x:Uid="Grid_1" >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition x:Uid="RowDefinition_1" Height="Auto"/>
+                            <RowDefinition x:Uid="RowDefinition_2" Height="*"/>
                         </Grid.RowDefinitions>
-                        <ListBox Grid.Row="0" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedCategory, Mode=OneWayToSource}" ItemsSource="{TemplateBinding GoodsCategoriesData}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox x:Uid="ListBox_1" Grid.Row="0" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedCategory, Mode=OneWayToSource}" ItemsSource="{TemplateBinding GoodsCategoriesData}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Horizontal">
+                                <ItemsPanelTemplate x:Uid="ItemsPanelTemplate_1">
+                                    <WrapPanel x:Uid="WrapPanel_1" Orientation="Horizontal">
                                     </WrapPanel>
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Width="130" Height="25" Text="{Binding CategoryName,Mode=OneTime}"/>
+                                <DataTemplate x:Uid="DataTemplate_1">
+                                    <TextBlock x:Uid="TextBlock_1" Width="130" Height="25" Text="{Binding CategoryName,Mode=OneTime}"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <ScrollViewer Name="PART_btnsScrollViewer" PanningMode="VerticalOnly" Grid.Row="1">
-                            <WrapPanel Name="PART_btnsPane" Orientation="Horizontal" >
-                                <Button Name="PART_btn1" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn2" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn3" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn4" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn5" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn6" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn7" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn8" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn9" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn10" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn11" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn12" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn13" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn14" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn15" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn16" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn17" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn18" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn19" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn20" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn21" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn22" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn23" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn24" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn25" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn26" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn27" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn28" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn29" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn30" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn31" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn32" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn33" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn34" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn35" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn36" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn37" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn38" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn39" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn40" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn41" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn42" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn43" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn44" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn45" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn46" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn47" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn48" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn49" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn50" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn51" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn52" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn53" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn54" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn55" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn56" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn57" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn58" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn59" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn60" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn61" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn62" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn63" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn64" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn65" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn66" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn67" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn68" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn69" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn70" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn71" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn72" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn73" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn74" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn75" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn76" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn77" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn78" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn79" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn80" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn81" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn82" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn83" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn84" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn85" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn86" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn87" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn88" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn89" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn90" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn91" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn92" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn93" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn94" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn95" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn96" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn97" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn98" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn99" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
-                                <Button Name="PART_btn100" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                        <ScrollViewer x:Uid="PART_btnsScrollViewer" Name="PART_btnsScrollViewer" PanningMode="VerticalOnly" Grid.Row="1">
+                            <WrapPanel x:Uid="PART_btnsPane" Name="PART_btnsPane" Orientation="Horizontal" >
+                                <Button x:Uid="PART_btn1" Name="PART_btn1" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn2" Name="PART_btn2" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn3" Name="PART_btn3" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn4" Name="PART_btn4" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn5" Name="PART_btn5" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn6" Name="PART_btn6" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn7" Name="PART_btn7" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn8" Name="PART_btn8" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn9" Name="PART_btn9" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn10" Name="PART_btn10" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn11" Name="PART_btn11" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn12" Name="PART_btn12" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn13" Name="PART_btn13" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn14" Name="PART_btn14" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn15" Name="PART_btn15" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn16" Name="PART_btn16" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn17" Name="PART_btn17" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn18" Name="PART_btn18" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn19" Name="PART_btn19" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn20" Name="PART_btn20" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn21" Name="PART_btn21" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn22" Name="PART_btn22" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn23" Name="PART_btn23" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn24" Name="PART_btn24" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn25" Name="PART_btn25" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn26" Name="PART_btn26" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn27" Name="PART_btn27" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn28" Name="PART_btn28" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn29" Name="PART_btn29" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn30" Name="PART_btn30" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn31" Name="PART_btn31" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn32" Name="PART_btn32" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn33" Name="PART_btn33" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn34" Name="PART_btn34" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn35" Name="PART_btn35" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn36" Name="PART_btn36" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn37" Name="PART_btn37" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn38" Name="PART_btn38" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn39" Name="PART_btn39" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn40" Name="PART_btn40" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn41" Name="PART_btn41" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn42" Name="PART_btn42" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn43" Name="PART_btn43" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn44" Name="PART_btn44" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn45" Name="PART_btn45" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn46" Name="PART_btn46" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn47" Name="PART_btn47" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn48" Name="PART_btn48" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn49" Name="PART_btn49" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn50" Name="PART_btn50" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn51" Name="PART_btn51" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn52" Name="PART_btn52" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn53" Name="PART_btn53" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn54" Name="PART_btn54" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn55" Name="PART_btn55" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn56" Name="PART_btn56" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn57" Name="PART_btn57" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn58" Name="PART_btn58" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn59" Name="PART_btn59" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn60" Name="PART_btn60" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn61" Name="PART_btn61" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn62" Name="PART_btn62" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn63" Name="PART_btn63" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn64" Name="PART_btn64" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn65" Name="PART_btn65" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn66" Name="PART_btn66" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn67" Name="PART_btn67" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn68" Name="PART_btn68" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn69" Name="PART_btn69" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn70" Name="PART_btn70" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn71" Name="PART_btn71" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn72" Name="PART_btn72" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn73" Name="PART_btn73" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn74" Name="PART_btn74" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn75" Name="PART_btn75" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn76" Name="PART_btn76" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn77" Name="PART_btn77" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn78" Name="PART_btn78" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn79" Name="PART_btn79" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn80" Name="PART_btn80" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn81" Name="PART_btn81" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn82" Name="PART_btn82" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn83" Name="PART_btn83" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn84" Name="PART_btn84" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn85" Name="PART_btn85" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn86" Name="PART_btn86" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn87" Name="PART_btn87" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn88" Name="PART_btn88" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn89" Name="PART_btn89" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn90" Name="PART_btn90" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn91" Name="PART_btn91" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn92" Name="PART_btn92" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn93" Name="PART_btn93" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn94" Name="PART_btn94" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn95" Name="PART_btn95" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn96" Name="PART_btn96" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn97" Name="PART_btn97" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn98" Name="PART_btn98" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn99" Name="PART_btn99" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
+                                <Button x:Uid="PART_btn100" Name="PART_btn100" Content=""  Width="130" Height="100" Command="{Binding  RelativeSource={RelativeSource TemplatedParent}, Path=GoodsClickCommand}"/>
                             </WrapPanel>
                         </ScrollViewer>
                     </Grid>
